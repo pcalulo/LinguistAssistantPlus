@@ -16,17 +16,17 @@ public class Constituent {
 
 	JPanel parentPanel;
 	Box box;
-	
+
 	public Constituent(Node a, int parentDepth, JPanel parentPanel) {
 		NamedNodeMap attr = a.getAttributes();
 		NodeList children = a.getChildNodes();
 
 		box = new Box();
-		
+
 		featureList = new FeatureList();
 		depthLevel = parentDepth;
 		constList = new ConstitList(box);
-		
+
 		this.parentPanel = parentPanel;
 
 		/*
@@ -52,7 +52,7 @@ public class Constituent {
 			if (m.getNodeName().equals("subconst"))
 				constList.setConstitNode(m, depthLevel);
 		}
-		
+
 		createBox();
 	}
 
@@ -74,6 +74,10 @@ public class Constituent {
 
 	public String getTranslation() {
 		return translation;
+	}
+
+	public FeatureList getFeatureList() {
+		return featureList;
 	}
 
 	public void setTranslation(String translation) {
@@ -106,11 +110,10 @@ public class Constituent {
 
 		return toPrint;
 	}
-	
-	public void createBox()
-	{
+
+	public void createBox() {
 		String l;
-		
+
 		box.setConstituent(this);
 		box.setBackgroundColor(depthLevel);
 		parentPanel.add(box);

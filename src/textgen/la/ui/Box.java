@@ -1,6 +1,7 @@
 package textgen.la.ui;
 
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Font;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -21,37 +22,44 @@ public class Box extends JPanel {
 		conceptText = new JLabel();
 		add(labelText);
 		add(conceptText);
-		
+
 		conceptText.setFont(new Font("Arial", Font.ITALIC, 12));
-		
+
 		addMouseListener(new MouseListener() {
-			
+
 			@Override
 			public void mouseReleased(MouseEvent arg0) {
 				// TODO Auto-generated method stub
-				
+
 			}
-			
+
 			@Override
 			public void mousePressed(MouseEvent arg0) {
 				// TODO Auto-generated method stub
-				
+
 			}
-			
+
 			@Override
 			public void mouseExited(MouseEvent arg0) {
 				Box.this.setBorder(new EmptyBorder(0, 0, 0, 0));
 			}
-			
+
 			@Override
 			public void mouseEntered(MouseEvent arg0) {
-				Box.this.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
+				Box.this.setBorder(BorderFactory.createLineBorder(Color.BLACK,
+						2));
+
+				Cursor cursor = Cursor.getPredefinedCursor(Cursor.HAND_CURSOR);
+				setCursor(cursor);
 			}
-			
+
 			@Override
-			public void mouseClicked(MouseEvent arg0) {
+			public void mouseClicked(MouseEvent me) {
 				LAMainWindow wnd = LAMainWindow.getInstance();
 				wnd.setActiveConstituent(Box.this.getConstituent());
+
+				FeatureWindow fw = new FeatureWindow(me.getLocationOnScreen());
+				fw.setFeatureWindowContent(constituent);
 			}
 		});
 	}
@@ -91,11 +99,12 @@ public class Box extends JPanel {
 
 	public void setConstituent(Constituent constituent) {
 		this.constituent = constituent;
-		
+
 		this.labelText.setText(constituent.getLabel());
 		this.conceptText.setText(constituent.getConcept());
-		
-		// TODO: Remove this when the "CL constituents have null labels" issue is resolved
+
+		// TODO: Remove this when the "CL constituents have null labels" issue
+		// is resolved
 		if (constituent.getLabel() == null) {
 			this.labelText.setText("CL");
 		}

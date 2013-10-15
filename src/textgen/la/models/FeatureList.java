@@ -16,6 +16,10 @@ public class FeatureList {
 	public int getLength() {
 		return length;
 	}
+	
+	public ArrayList<Feature> getFeatures() {
+		return features;
+	}
 
 	public void setFeatureNode(Node m, int parentDepth) {
 		NodeList children = m.getChildNodes();
