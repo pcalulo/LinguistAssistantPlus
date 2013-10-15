@@ -5,6 +5,7 @@ import java.awt.Dimension;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 import textgen.la.models.Parser;
 
@@ -22,7 +23,7 @@ public class Window extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
 
-		add(panel);
+		add(new JScrollPane(panel));
 
 		// setLayout( new FlowLayout() ); // set the layout manager
 	}
