@@ -10,14 +10,19 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import textgen.la.models.Constituent;
+
 public class Box extends JPanel {
-	JLabel label, concept;
+	JLabel labelText, conceptText;
+	private Constituent constituent;
 
 	public Box() {
-		label = new JLabel();
-		concept = new JLabel();
-		add(label);
-		add(concept);
+		labelText = new JLabel();
+		conceptText = new JLabel();
+		add(labelText);
+		add(conceptText);
+		
+		conceptText.setFont(new Font("Arial", Font.ITALIC, 12));
 		
 		addMouseListener(new MouseListener() {
 			
@@ -35,13 +40,13 @@ public class Box extends JPanel {
 			
 			@Override
 			public void mouseExited(MouseEvent arg0) {
-				System.out.println("Mouse exited " + label.getText());
+				System.out.println("Mouse exited " + labelText.getText());
 				Box.this.setBorder(new EmptyBorder(0, 0, 0, 0));
 			}
 			
 			@Override
 			public void mouseEntered(MouseEvent arg0) {
-				System.out.println("Mouse entered " + label.getText());
+				System.out.println("Mouse entered " + labelText.getText());
 				Box.this.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
 			}
 			
@@ -73,15 +78,24 @@ public class Box extends JPanel {
 		}
 	}
 
+	@Deprecated
 	public void setValues(String l, String c) {
 		if (c != null)
-			label.setText(l + ": ");
+			labelText.setText(l + ": ");
 		else
-			label.setText(l);
-		concept.setText(c);
+			labelText.setText(l);
+		conceptText.setText(c);
+	}
 
-		concept.setFont(new Font("Arial", Font.ITALIC, 12));
+	public Constituent getConstituent() {
+		return constituent;
+	}
 
+	public void setConstituent(Constituent constituent) {
+		this.constituent = constituent;
+		
+		this.labelText.setText(constituent.getLabel());
+		this.conceptText.setText(constituent.getConcept());
 	}
 
 }

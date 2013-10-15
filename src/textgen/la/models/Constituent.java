@@ -56,6 +56,30 @@ public class Constituent {
 		createBox();
 	}
 
+	public String getLabel() {
+		return label;
+	}
+
+	public void setLabel(String label) {
+		this.label = label;
+	}
+
+	public String getConcept() {
+		return concept;
+	}
+
+	public void setConcept(String concept) {
+		this.concept = concept;
+	}
+
+	public String getTranslation() {
+		return translation;
+	}
+
+	public void setTranslation(String translation) {
+		this.translation = translation;
+	}
+
 	public String toXMLString() {
 		String depth = "";
 
@@ -86,9 +110,8 @@ public class Constituent {
 	public void createBox()
 	{
 		String l;
-		if ((l = label) == null)
-			l = "CL";
-		box.setValues(l, concept);
+		
+		box.setConstituent(this);
 		box.setBackgroundColor(depthLevel);
 		panel.add(box);
 	}
