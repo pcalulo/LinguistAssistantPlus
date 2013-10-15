@@ -97,7 +97,7 @@ public class FeatureWindow extends JFrame {
 			for (int i = 0; i < features.size(); i++) {
 				Feature f = features.get(i);
 				try {
-					doc.insertString(doc.getLength(), "  Â• " + f.getName(),
+					doc.insertString(doc.getLength(), "  • " + f.getName(),
 							nameStyle);
 					doc.insertString(doc.getLength(), ": " + f.getValue()
 							+ "\n", valueStyle);
