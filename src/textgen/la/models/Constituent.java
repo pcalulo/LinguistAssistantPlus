@@ -14,7 +14,7 @@ public class Constituent {
 	private ConstitList constList;
 	private int depthLevel;
 
-	JPanel panel;
+	JPanel parentPanel;
 	Box box;
 	
 	public Constituent(Node a, int parentDepth, JPanel parentPanel) {
@@ -27,7 +27,7 @@ public class Constituent {
 		depthLevel = parentDepth;
 		constList = new ConstitList(box);
 		
-		panel = parentPanel;
+		this.parentPanel = parentPanel;
 
 		/*
 		 * if (attr.getNamedItem("label").getNodeValue() != null) label =
@@ -113,6 +113,6 @@ public class Constituent {
 		
 		box.setConstituent(this);
 		box.setBackgroundColor(depthLevel);
-		panel.add(box);
+		parentPanel.add(box);
 	}
 }
