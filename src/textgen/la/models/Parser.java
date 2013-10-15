@@ -25,6 +25,7 @@ public class Parser {
 
 			return new Sentence(root);
 		} catch (Exception e) {
+			e.printStackTrace();
 			return null;
 		}
 	}
