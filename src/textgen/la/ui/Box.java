@@ -52,7 +52,7 @@ public class Box extends JPanel {
 			
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				MainWindow wnd = MainWindow.getInstance();
+				LAMainWindow wnd = LAMainWindow.getInstance();
 				wnd.setActiveConstituent(Box.this.getConstituent());
 			}
 		});
