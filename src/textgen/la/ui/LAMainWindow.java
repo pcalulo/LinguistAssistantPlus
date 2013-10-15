@@ -1,11 +1,14 @@
 package textgen.la.ui;
 
+import java.awt.Color;
 import java.awt.EventQueue;
 
+import javax.swing.JPanel;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
 import textgen.la.models.Constituent;
+import textgen.la.models.Parser;
 
 /**
  * This class extends BaseMainWindow, and provides additional business logic
@@ -45,6 +48,21 @@ public class LAMainWindow extends BaseMainWindow {
 				}
 			}
 		});
+	}
+
+	public LAMainWindow() {
+		super();
+		initializeBoxInterface();
+	}
+
+	private void initializeBoxInterface() {
+		JPanel panel;
+
+		panel = new JPanel();
+		panel.setBackground(Color.white);
+		Parser parser = new Parser(panel);
+
+		getScrollPane().setViewportView(panel);
 	}
 
 	public void setActiveConstituent(Constituent constituent) {

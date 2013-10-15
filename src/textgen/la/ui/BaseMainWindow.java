@@ -38,16 +38,15 @@ public class BaseMainWindow {
 
 	private JFrame windowForm;
 	private Parser parser;
-	private JScrollPane scrollPane;
 	private JTextField labelField;
 	private JTextField conceptField;
+	private JScrollPane scrollPane;
 
 	/**
 	 * Create the application.
 	 */
 	public BaseMainWindow() {
 		initialize();
-		initializeBoxInterface();
 	}
 
 	/**
@@ -175,16 +174,6 @@ public class BaseMainWindow {
 		infoPanel.setLayout(gl_infoPanel);
 	}
 
-	private void initializeBoxInterface() {
-		JPanel panel;
-
-		panel = new JPanel();
-		panel.setBackground(Color.white);
-		parser = new Parser(panel);
-
-		scrollPane.setViewportView(panel);
-	}
-
 	protected JTextField getLabelField() {
 		return labelField;
 	}
@@ -194,5 +183,8 @@ public class BaseMainWindow {
 	}
 	protected JFrame getWindowForm() {
 		return windowForm;
+	}
+	public JScrollPane getScrollPane() {
+		return scrollPane;
 	}
 }
