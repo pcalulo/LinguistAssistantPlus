@@ -40,13 +40,11 @@ public class Box extends JPanel {
 			
 			@Override
 			public void mouseExited(MouseEvent arg0) {
-				System.out.println("Mouse exited " + labelText.getText());
 				Box.this.setBorder(new EmptyBorder(0, 0, 0, 0));
 			}
 			
 			@Override
 			public void mouseEntered(MouseEvent arg0) {
-				System.out.println("Mouse entered " + labelText.getText());
 				Box.this.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
 			}
 			

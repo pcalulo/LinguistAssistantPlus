@@ -56,7 +56,7 @@ public class BaseMainWindow {
 	private void initialize() {
 		windowForm = new JFrame();
 		windowForm.setTitle("Linguist Assistant+");
-		windowForm.setBounds(100, 100, 411, 298);
+		windowForm.setBounds(100, 100, 643, 435);
 		windowForm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		scrollPane = new JScrollPane();
