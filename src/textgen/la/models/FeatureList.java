@@ -9,6 +9,10 @@ public class FeatureList {
 	private ArrayList<Feature> features = new ArrayList<Feature>();
 	private int length, depthLevel;
 
+	public FeatureList(ArrayList<Feature> features){
+		this.features=features;
+	}
+	
 	public FeatureList() {
 		length = 0;
 	}

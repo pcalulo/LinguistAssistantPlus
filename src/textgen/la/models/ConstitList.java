@@ -13,6 +13,8 @@ public class ConstitList {
 
 	JPanel panel;
 	
+	public ConstitList(){}
+	
 	public ConstitList(JPanel parentPanel) {
 		length = 0;
 		this.panel = parentPanel;
