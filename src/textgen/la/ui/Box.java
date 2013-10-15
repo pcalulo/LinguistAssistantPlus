@@ -32,6 +32,12 @@ public class Box extends JPanel{
 			case 2:
 				this.setBackground(new Color(180, 180, 255));
 				break;
+			case 3:
+				this.setBackground(new Color(255, 255, 180));
+				break;
+			case 4:
+				this.setBackground(new Color(255, 180, 255));
+				break;
 		}
 	}
 	
