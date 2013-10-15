@@ -1,270 +1,293 @@
 <sentence>
-	<const label = "CL">
+	<const label="CL">
 		<features>
 			<feature>
 				<name> salience band </name>
 				<value> backgrounded actions </value>
-			</feature> 
+			</feature>
 			<feature>
 				<name> focus type </name>
 				<value> agent focus </value>
-			</feature> 
+			</feature>
 		</features>
 		<subconst>
-			<const><label>Adp</label>
+			<const>
+				<label>Adp</label>
 				<concept> while-A </concept>
 			</const>
-			<const><label>NP</label>
+			<const>
+				<label>NP</label>
 				<features>
 					<feature>
 						<name> semantic role </name>
 						<value> most agent-like </value>
-					</feature> 
+					</feature>
 					<feature>
 						<name> grammatical relation </name>
 						<value> object </value>
-					</feature> 
+					</feature>
 				</features>
 				<subconst>
-					<const><label>N</label>
+					<const>
+						<label>N</label>
 						<concept> John-A </concept>
 						<features>
 							<feature>
 								<name> participant tracking </name>
 								<value> routine </value>
-							</feature> 
+							</feature>
 							<feature>
 								<name> person </name>
 								<value> first </value>
-							</feature> 
+							</feature>
 							<feature>
 								<name> noun list index </name>
 								<value> 1 </value>
-							</feature> 
+							</feature>
 						</features>
-					</const> 
+					</const>
 				</subconst>
 			</const>
-			<const><label>VP</label>
+			<const>
+				<label>VP</label>
 				<subconst>
-					<const><label>V</label>
+					<const>
+						<label>V</label>
 						<concept> walk-A </concept>
 						<features>
 							<feature>
 								<name> time </name>
 								<value> yesterday </value>
-							</feature> 
+							</feature>
 						</features>
-					</const> 
+					</const>
 				</subconst>
 			</const>
-			<const><label>NP</label>
+			<const>
+				<label>NP</label>
 				<features>
 					<feature>
 						<name> semantic role </name>
 						<value> most agent-like </value>
-						</feature> 
+					</feature>
 				</features>
 				<subconst>
-					<const><label>N</label>
+					<const>
+						<label>N</label>
 						<concept> Mary-A </concept>
 						<features>
 							<feature>
 								<name> participant tracking </name>
 								<value> routine </value>
-							</feature> 
+							</feature>
 							<feature>
 								<name> noun list index </name>
 								<value> 2 </value>
-							</feature> 
+							</feature>
 						</features>
-					</const> 
+					</const>
 				</subconst>
 			</const>
-			<const><label>VP</label>
+			<const>
+				<label>VP</label>
 				<subconst>
-					<const><label>V</label>
+					<const>
+						<label>V</label>
 						<concept> read-A </concept>
 						<features>
 							<feature>
 								<name> time </name>
 								<value> yesterday </value>
-							</feature> 
+							</feature>
 							<feature>
 								<name> aspect </name>
 								<value> completive </value>
-							</feature> 
+							</feature>
 							<feature>
 								<name> polarity </name>
 								<value> emphatic affirmative </value>
-							</feature> 
+							</feature>
 						</features>
-					</const>   
+					</const>
 				</subconst>
 			</const>
-			<const><label>NP</label>
+			<const>
+				<label>NP</label>
 				<features>
 					<feature>
 						<name> semantic role </name>
 						<value> most patient-like </value>
-					</feature> 
+					</feature>
 				</features>
 				<subconst>
-					<const><label>N</label>
+					<const>
+						<label>N</label>
 						<concept> book-A </concept>
 						<features>
 							<feature>
 								<name> participant tracking </name>
 								<value> routine </value>
-							</feature> 
+							</feature>
 							<feature>
 								<name> proximity </name>
 								<value> near speaker </value>
-							</feature> 
+							</feature>
 							<feature>
 								<name> noun list index </name>
 								<value> 3 </value>
-							</feature> 
+							</feature>
 						</features>
-					</const>     		
+					</const>
 				</subconst>
 			</const>
 		</subconst>
 	</const>
-	
-	<const label = "CL">
+
+	<const label="CL">
 		<subconst>
-			<const> <label>subcl</label>
+			<const>
+				<label>subcl</label>
 				<features>
 					<feature>
 						<name> salience band </name>
 						<value> backgrounded actions </value>
-					</feature> 
+					</feature>
 					<feature>
 						<name> focus type </name>
 						<value> patient focus </value>
-					</feature> 
+					</feature>
 				</features>
 			</const>
-			<const> <label>adp</label>
+			<const>
+				<label>adp</label>
 				<concept> while-A </concept>
 			</const>
-			<const> <label>np</label>
+			<const>
+				<label>np</label>
 				<features>
 					<feature>
 						<name> semantic role </name>
 						<value> most agent-like </value>
-					</feature> 
+					</feature>
 					<feature>
 						<name> grammatical relation </name>
 						<value> indirect object </value>
-					</feature> 
+					</feature>
 				</features>
 				<subconst>
-					<const> <label>n</label>
+					<const>
+						<label>n</label>
 						<concept> John-A </concept>
 						<features>
 							<feature>
 								<name> participant tracking </name>
 								<value> routine </value>
-							</feature> 
+							</feature>
 							<feature>
 								<name> person </name>
 								<value> first </value>
-							</feature> 
+							</feature>
 							<feature>
 								<name> noun list index </name>
 								<value> 4 </value>
-							</feature> 
+							</feature>
 						</features>
-					</const>      
+					</const>
 				</subconst>
 			</const>
-			<const> <label>vp</label>
+			<const>
+				<label>vp</label>
 				<subconst>
-					<const> <label>v</label>
+					<const>
+						<label>v</label>
 						<concept> walk-A </concept>
 						<features>
 							<feature>
 								<name> time </name>
 								<value> yesterday </value>
-							</feature> 
+							</feature>
 						</features>
-					</const>     
+					</const>
 				</subconst>
 			</const>
 		</subconst>
 	</const>
-	
-	<const> <label>np</label>
+
+	<const>
+		<label>np</label>
 		<features>
 			<feature>
 				<name> semantic role </name>
 				<value> most agent-like </value>
-			</feature> 
+			</feature>
 		</features>
 		<subconst>
-			<const> <label>n</label>
+			<const>
+				<label>n</label>
 				<concept> Mary-A </concept>
 				<features>
 					<feature>
 						<name> participant tracking </name>
 						<value> routine </value>
-					</feature> 
+					</feature>
 					<feature>
 						<name> noun list index </name>
 						<value> 5 </value>
-					</feature> 
+					</feature>
 				</features>
-			</const>      
+			</const>
 		</subconst>
 	</const>
-	<const> <label>vp</label>
+	<const>
+		<label>vp</label>
 		<subconst>
-			<const> <label>v</label>
+			<const>
+				<label>v</label>
 				<concept> read-A </concept>
 				<features>
 					<feature>
 						<name> time </name>
 						<value> yesterday </value>
-					</feature> 
+					</feature>
 					<feature>
 						<name> aspect </name>
 						<value> completive </value>
-					</feature> 
+					</feature>
 					<feature>
 						<name> polarity </name>
 						<value> emphatic affirmative </value>
-					</feature> 
+					</feature>
 				</features>
-			</const>     
+			</const>
 		</subconst>
 	</const>
-	<const> <label>np</label>
+	<const>
+		<label>np</label>
 		<features>
 			<feature>
 				<name> semantic role </name>
 				<value> most patient-like </value>
-			</feature> 
+			</feature>
 		</features>
 		<subconst>
-			<const> <label>n</label>
+			<const>
+				<label>n</label>
 				<concept> book-A </concept>
 				<features>
 					<feature>
 						<name> participant tracking </name>
 						<value> routine </value>
-					</feature> 
+					</feature>
 					<feature>
 						<name> proximity </name>
 						<value> near speaker </value>
-					</feature> 
+					</feature>
 					<feature>
 						<name> noun list index </name>
 						<value> 6 </value>
-					</feature> 
+					</feature>
 				</features>
-			</const>      
+			</const>
 		</subconst>
 	</const>
 </sentence>
