@@ -14,12 +14,13 @@ public class Parser {
 	Document docu;
 
 	JPanel panel;
-	
+	private Sentence sentence;
+
 	public Sentence readXMLFile(String bookName, String sentenceNo) {
 		try {
 			String fileName = bookName + "_" + sentenceNo + ".xml";
 
-			File xmlFile = new File("resources/"+fileName);
+			File xmlFile = new File("resources/" + fileName);
 			factory = DocumentBuilderFactory.newInstance();
 			builder = factory.newDocumentBuilder();
 			docu = builder.parse(xmlFile);
@@ -49,12 +50,14 @@ public class Parser {
 		}
 	}
 
-	public Parser(JPanel panel)
-	{
+	public Parser(JPanel panel) {
 		this.panel = panel;
-		Sentence a = readXMLFile("InfectedEye", "1");
-		System.out.println(a.toXMLString());
-		writeToFile("InfectedEye", "1", a);
-
+		this.sentence = readXMLFile("InfectedEye", "1");
+		System.out.println(sentence.toXMLString());
+		writeToFile("InfectedEye", "1", sentence);
+	}
+	
+	public Sentence getSentence() {
+		return sentence;
 	}
 }
