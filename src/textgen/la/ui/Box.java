@@ -55,11 +55,18 @@ public class Box extends JPanel {
 
 			@Override
 			public void mouseClicked(MouseEvent me) {
-				LAMainWindow wnd = LAMainWindow.getInstance();
-				wnd.setActiveConstituent(Box.this.getConstituent());
+				int button = me.getButton();
 
-				FeatureWindow fw = new FeatureWindow(me.getLocationOnScreen());
-				fw.setFeatureWindowContent(constituent);
+				if (button == me.BUTTON1) {
+					// Left click to select
+					LAMainWindow wnd = LAMainWindow.getInstance();
+					wnd.setActiveConstituent(Box.this.getConstituent());
+				} else if (button == me.BUTTON3) {
+					// Right click to show features
+					FeatureWindow fw = new FeatureWindow(
+							me.getLocationOnScreen());
+					fw.setFeatureWindowContent(constituent);
+				}
 			}
 		});
 	}
