@@ -20,7 +20,6 @@ public class Constituent {
 	public Constituent(Node a, int parentDepth, JPanel parentPanel) {
 		NamedNodeMap attr = a.getAttributes();
 		NodeList children = a.getChildNodes();
-
 		box = new Box();
 
 		featureList = new FeatureList();
@@ -39,18 +38,18 @@ public class Constituent {
 		 */
 
 		for (int i = 0; i < children.getLength(); i++) {
-			Node m = children.item(i);
+			Node node = children.item(i);
 
-			if (m.getNodeName().equals("label"))
-				label = m.getChildNodes().item(0).getNodeValue().trim();
-			if (m.getNodeName().equals("concept"))
-				concept = m.getChildNodes().item(0).getNodeValue().trim();
-			if (m.getNodeName().equals("translation"))
-				translation = m.getChildNodes().item(0).getNodeValue().trim();
-			if (m.getNodeName().equals("features"))
-				featureList.setFeatureNode(m, depthLevel);
-			if (m.getNodeName().equals("subconst"))
-				constList.setConstitNode(m, depthLevel);
+			if (node.getNodeName().equals("label"))
+				label = node.getChildNodes().item(0).getNodeValue().trim();
+			if (node.getNodeName().equals("concept"))
+				concept = node.getChildNodes().item(0).getNodeValue().trim();
+			if (node.getNodeName().equals("translation"))
+				translation = node.getChildNodes().item(0).getNodeValue().trim();
+			if (node.getNodeName().equals("features"))
+				featureList.setFeatureNode(node, depthLevel);
+			if (node.getNodeName().equals("subconst"))
+				constList.setConstitNode(node, depthLevel);
 		}
 
 		createBox();
@@ -112,10 +111,15 @@ public class Constituent {
 	}
 
 	public void createBox() {
-		String l;
-
 		box.setConstituent(this);
 		box.setBackgroundColor(depthLevel);
 		parentPanel.add(box);
+	}
+	
+	public void recreateBox(JPanel newParent) {
+		parentPanel = newParent;
+		createBox();
+		
+		this.constList.recreateBoxes(box);
 	}
 }

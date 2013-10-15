@@ -2,13 +2,17 @@ package textgen.la.ui;
 
 import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
 import textgen.la.models.Constituent;
 import textgen.la.models.Parser;
+import textgen.la.models.Sentence;
 
 /**
  * This class extends BaseMainWindow, and provides additional business logic
@@ -20,6 +24,9 @@ import textgen.la.models.Parser;
 public class LAMainWindow extends BaseMainWindow {
 
 	public static LAMainWindow instance;
+	
+	private Sentence sentence;
+	private Constituent selectedConstituent;
 
 	public static LAMainWindow getInstance() {
 		return instance;
@@ -53,6 +60,7 @@ public class LAMainWindow extends BaseMainWindow {
 	public LAMainWindow() {
 		super();
 		initializeBoxInterface();
+		initUiComponents();
 	}
 
 	private void initializeBoxInterface() {
@@ -61,8 +69,30 @@ public class LAMainWindow extends BaseMainWindow {
 		panel = new JPanel();
 		panel.setBackground(Color.white);
 		Parser parser = new Parser(panel);
+		this.sentence = parser.getSentence();
 
 		getScrollPane().setViewportView(panel);
+	}
+	
+	private void initUiComponents() {
+		JButton okButton = getOkButton();
+		okButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				LAMainWindow.this.onModifyConstituent();
+			}
+		});
+	}
+	
+	private void onModifyConstituent() {
+		if (selectedConstituent != null) {
+			selectedConstituent.setLabel(getLabelField().getText());
+			selectedConstituent.setConcept(getConceptField().getText());
+		}
+		
+		JPanel boxes = sentence.toBoxes();
+		getScrollPane().setViewportView(boxes);
 	}
 
 	public void setActiveConstituent(Constituent constituent) {

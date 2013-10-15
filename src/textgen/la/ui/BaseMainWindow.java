@@ -41,6 +41,7 @@ public class BaseMainWindow {
 	private JTextField labelField;
 	private JTextField conceptField;
 	private JScrollPane scrollPane;
+	private JButton okButton;
 
 	/**
 	 * Create the application.
@@ -66,7 +67,7 @@ public class BaseMainWindow {
 		windowForm.getContentPane()
 				.add(infoPanel, BorderLayout.SOUTH);
 
-		JButton btnHelloWorld = new JButton("Hello World!");
+		okButton = new JButton("OK");
 
 		JPanel panel = new JPanel();
 		GroupLayout gl_infoPanel = new GroupLayout(infoPanel);
@@ -78,7 +79,7 @@ public class BaseMainWindow {
 						.addComponent(panel, GroupLayout.DEFAULT_SIZE, 276,
 								Short.MAX_VALUE)
 						.addPreferredGap(ComponentPlacement.RELATED)
-						.addComponent(btnHelloWorld).addContainerGap()));
+						.addComponent(okButton).addContainerGap()));
 		gl_infoPanel
 				.setVerticalGroup(gl_infoPanel
 						.createParallelGroup(Alignment.TRAILING)
@@ -94,7 +95,7 @@ public class BaseMainWindow {
 																gl_infoPanel
 																		.createSequentialGroup()
 																		.addComponent(
-																				btnHelloWorld,
+																				okButton,
 																				GroupLayout.PREFERRED_SIZE,
 																				48,
 																				GroupLayout.PREFERRED_SIZE)
@@ -186,5 +187,8 @@ public class BaseMainWindow {
 	}
 	public JScrollPane getScrollPane() {
 		return scrollPane;
+	}
+	public JButton getOkButton() {
+		return okButton;
 	}
 }

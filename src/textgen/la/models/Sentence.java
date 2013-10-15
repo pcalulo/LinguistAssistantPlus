@@ -20,31 +20,17 @@ public class Sentence {
 
 	public Sentence(Element root, JPanel parentPanel) {
 		NodeList children = root.getChildNodes();
-		Node a;
+		Node node;
 
 		this.panel = parentPanel;
 		
 		for (int i = 0; i < children.getLength(); i++) {
-			a = children.item(i);
+			node = children.item(i);
 
-			if (a.getNodeName().equals("const"))
-				clauses.add(new Constituent(a, depthLevel, panel));
+			if (node.getNodeName().equals("const"))
+				clauses.add(new Constituent(node, depthLevel, panel));
 		}
 	}
-
-	/*
-	 * public String toString() { String depth = ""; String toPrint =
-	 * "<sentence>\n";
-	 * 
-	 * for (int i = 0; i < depthLevel; i++) { depth += "\t"; }
-	 * 
-	 * for (int i = 0; i < clauses.size(); i++) { toPrint += depth +
-	 * clauses.get(i) + "\n"; }
-	 * 
-	 * toPrint += "</sentence>";
-	 * 
-	 * return toPrint; }
-	 */
 
 	public String toXMLString() {
 		String depth = "";
@@ -62,5 +48,15 @@ public class Sentence {
 		toPrint += depth + "</sentence>";
 
 		return toPrint;
+	}
+	
+	public JPanel toBoxes() {
+		JPanel panel = new JPanel();
+		
+		for (Constituent clause : clauses) {
+			clause.recreateBox(panel);
+		}
+		
+		return panel;
 	}
 }

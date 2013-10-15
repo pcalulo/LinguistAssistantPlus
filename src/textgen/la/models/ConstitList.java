@@ -57,4 +57,10 @@ public class ConstitList {
 
 		return toPrint;
 	}
+	
+	public void recreateBoxes(JPanel newParent) {
+		for (Constituent constit : cons) {
+			constit.recreateBox(newParent);
+		}
+	}
 }
