@@ -3,6 +3,7 @@ package textgen.la.models;
 import java.io.File;
 import java.io.IOException;
 
+import javax.swing.JPanel;
 import javax.xml.parsers.*;
 import org.w3c.dom.*;
 import java.io.FileWriter;
@@ -12,18 +13,20 @@ public class Parser {
 	DocumentBuilder builder;
 	Document docu;
 
+	JPanel panel;
+	
 	public Sentence readXMLFile(String bookName, String sentenceNo) {
 		try {
 			String fileName = bookName + "_" + sentenceNo + ".xml";
 
-			File xmlFile = new File(fileName);
+			File xmlFile = new File("resources/"+fileName);
 			factory = DocumentBuilderFactory.newInstance();
 			builder = factory.newDocumentBuilder();
 			docu = builder.parse(xmlFile);
 			docu.getDocumentElement().normalize();
 			Element root = docu.getDocumentElement(); // root
 
-			return new Sentence(root);
+			return new Sentence(root, panel);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
@@ -46,12 +49,12 @@ public class Parser {
 		}
 	}
 
-	public static void main(String[] args) {
-		// DEBUG STUFF
-		Parser p = new Parser();
-		Sentence a = p.readXMLFile("InfectedEye", "1");
+	public Parser(JPanel panel)
+	{
+		this.panel = panel;
+		Sentence a = readXMLFile("InfectedEye", "1");
 		System.out.println(a.toXMLString());
-		p.writeToFile("InfectedEye", "1", a);
+		writeToFile("InfectedEye", "1", a);
 
 	}
 }

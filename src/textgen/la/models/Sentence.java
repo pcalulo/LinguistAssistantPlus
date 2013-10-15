@@ -2,6 +2,8 @@ package textgen.la.models;
 
 import java.util.ArrayList;
 
+import javax.swing.JPanel;
+
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -9,20 +11,24 @@ import org.w3c.dom.NodeList;
 public class Sentence {
 	public ArrayList<Constituent> clauses = new ArrayList<Constituent>();
 	int depthLevel = 0;
+	
+	JPanel panel;
 
 	public Sentence() {
 
 	}
 
-	public Sentence(Element root) {
+	public Sentence(Element root, JPanel parentPanel) {
 		NodeList children = root.getChildNodes();
 		Node a;
 
+		this.panel = parentPanel;
+		
 		for (int i = 0; i < children.getLength(); i++) {
 			a = children.item(i);
 
 			if (a.getNodeName().equals("const"))
-				clauses.add(new Constituent(a, depthLevel));
+				clauses.add(new Constituent(a, depthLevel, panel));
 		}
 	}
 

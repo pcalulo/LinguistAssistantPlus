@@ -2,6 +2,8 @@ package textgen.la.models;
 
 import java.util.ArrayList;
 
+import javax.swing.JPanel;
+
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
@@ -9,8 +11,11 @@ public class ConstitList {
 	ArrayList<Constituent> cons = new ArrayList<Constituent>();
 	int length, depthLevel;
 
-	public ConstitList() {
+	JPanel panel;
+	
+	public ConstitList(JPanel parentPanel) {
 		length = 0;
+		this.panel = parentPanel;
 	}
 
 	public void setConstitNode(Node m, int parentDepth) {
@@ -23,7 +28,7 @@ public class ConstitList {
 			a = children.item(i);
 
 			if (a.getNodeName().equals("const")) {
-				cons.add(new Constituent(a, depthLevel));
+				cons.add(new Constituent(a, depthLevel, panel));
 				length++;
 			}
 		}

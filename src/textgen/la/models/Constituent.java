@@ -1,8 +1,12 @@
 package textgen.la.models;
 
+import javax.swing.JPanel;
+
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+
+import textgen.la.ui.Box;
 
 public class Constituent {
 	private String label, concept, translation;
@@ -10,13 +14,20 @@ public class Constituent {
 	private ConstitList constList;
 	private int depthLevel;
 
-	public Constituent(Node a, int parentDepth) {
+	JPanel panel;
+	Box box;
+	
+	public Constituent(Node a, int parentDepth, JPanel parentPanel) {
 		NamedNodeMap attr = a.getAttributes();
 		NodeList children = a.getChildNodes();
 
+		box = new Box();
+		
 		featureList = new FeatureList();
-		constList = new ConstitList();
-		depthLevel = parentDepth + 1;
+		depthLevel = parentDepth;
+		constList = new ConstitList(box);
+		
+		panel = parentPanel;
 
 		/*
 		 * if (attr.getNamedItem("label").getNodeValue() != null) label =
@@ -41,6 +52,8 @@ public class Constituent {
 			if (m.getNodeName().equals("subconst"))
 				constList.setConstitNode(m, depthLevel);
 		}
+		
+		createBox();
 	}
 
 	public String toXMLString() {
@@ -68,5 +81,15 @@ public class Constituent {
 		toPrint += depth + "</const>";
 
 		return toPrint;
+	}
+	
+	public void createBox()
+	{
+		String l;
+		if ((l = label) == null)
+			l = "CL";
+		box.setValues(l, concept);
+		box.setBackgroundColor(depthLevel);
+		panel.add(box);
 	}
 }
