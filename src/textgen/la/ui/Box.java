@@ -52,8 +52,8 @@ public class Box extends JPanel {
 			
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-				
+				MainWindow wnd = MainWindow.getInstance();
+				wnd.setActiveConstituent(Box.this.getConstituent());
 			}
 		});
 	}

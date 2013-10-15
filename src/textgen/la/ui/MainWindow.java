@@ -11,6 +11,7 @@ import java.awt.BorderLayout;
 import javax.swing.JPanel;
 import javax.swing.JButton;
 
+import textgen.la.models.Constituent;
 import textgen.la.models.Parser;
 
 import javax.swing.GroupLayout;
@@ -29,8 +30,14 @@ public class MainWindow {
 	private JFrame frmLinguistAssistant;
 	private Parser parser;
 	private JScrollPane scrollPane;
-	private JTextField textField;
-	private JTextField textField_1;
+	private JTextField labelField;
+	private JTextField conceptField;
+	
+	private static MainWindow instance;
+	
+	public static MainWindow getInstance() {
+		return instance;
+	}
 
 	/**
 	 * Launch the application.
@@ -50,6 +57,7 @@ public class MainWindow {
 				try {
 					MainWindow window = new MainWindow();
 					window.frmLinguistAssistant.setVisible(true);
+					MainWindow.instance = window;
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -108,13 +116,13 @@ public class MainWindow {
 		
 		JLabel lblLabel = new JLabel("Label");
 		
-		textField = new JTextField();
-		textField.setColumns(10);
+		labelField = new JTextField();
+		labelField.setColumns(10);
 		
 		JLabel lblConcept = new JLabel("Concept");
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
+		conceptField = new JTextField();
+		conceptField.setColumns(10);
 		GroupLayout gl_panel = new GroupLayout(panel);
 		gl_panel.setHorizontalGroup(
 			gl_panel.createParallelGroup(Alignment.TRAILING)
@@ -124,19 +132,19 @@ public class MainWindow {
 						.addComponent(lblLabel, GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE))
 					.addGap(4)
 					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-						.addComponent(textField_1, GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
-						.addComponent(textField, GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)))
+						.addComponent(conceptField, GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
+						.addComponent(labelField, GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)))
 		);
 		gl_panel.setVerticalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel.createSequentialGroup()
 					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblLabel, GroupLayout.PREFERRED_SIZE, 24, GroupLayout.PREFERRED_SIZE)
-						.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+						.addComponent(labelField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblConcept)
-						.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+						.addComponent(conceptField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addContainerGap(14, Short.MAX_VALUE))
 		);
 		panel.setLayout(gl_panel);
@@ -151,5 +159,17 @@ public class MainWindow {
 		parser = new Parser(panel);
 		
 		scrollPane.setViewportView(panel);
+	}
+	
+	public void setActiveConstituent(Constituent constituent) {
+		getLabelField().setText(constituent.getLabel());
+		getConceptField().setText(constituent.getConcept());
+	}
+	
+	protected JTextField getLabelField() {
+		return labelField;
+	}
+	protected JTextField getConceptField() {
+		return conceptField;
 	}
 }
