@@ -96,6 +96,11 @@ public class Box extends JPanel {
 		
 		this.labelText.setText(constituent.getLabel());
 		this.conceptText.setText(constituent.getConcept());
+		
+		// TODO: Remove this when the "CL constituents have null labels" issue is resolved
+		if (constituent.getLabel() == null) {
+			this.labelText.setText("CL");
+		}
 	}
 
 }
