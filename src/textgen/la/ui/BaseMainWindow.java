@@ -87,8 +87,8 @@ public class BaseMainWindow {
 			public void actionPerformed(ActionEvent e) {
 					addNewFeature frame = new addNewFeature();
 					frame.setVisible(true);
-					while(!frame.checker){
-					}
+					//while(!frame.checker){
+					//}
 					features = frame.returnFeatures();
 					ConstitList constit= new ConstitList();
 					cons = new Constituent(labelField.getText(),conceptField.getText(), "", features, constit);
