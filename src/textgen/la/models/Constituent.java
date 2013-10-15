@@ -16,7 +16,15 @@ public class Constituent {
 
 	JPanel parentPanel;
 	Box box;
-
+	
+	public Constituent(String label,String concept, String translation, FeatureList featureList, ConstitList constList){
+		this.label=label;
+		this.concept=concept;
+		this.translation=translation;
+		this.featureList=featureList;
+		this.constList=constList;
+	}
+	
 	public Constituent(Node a, int parentDepth, JPanel parentPanel) {
 		NamedNodeMap attr = a.getAttributes();
 		NodeList children = a.getChildNodes();

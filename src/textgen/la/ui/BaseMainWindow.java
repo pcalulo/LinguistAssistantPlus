@@ -11,7 +11,9 @@ import java.awt.BorderLayout;
 import javax.swing.JPanel;
 import javax.swing.JButton;
 
+import textgen.la.models.ConstitList;
 import textgen.la.models.Constituent;
+import textgen.la.models.FeatureList;
 import textgen.la.models.Parser;
 
 import javax.swing.GroupLayout;
@@ -24,6 +26,9 @@ import javax.swing.UnsupportedLookAndFeelException;
 import java.awt.GridLayout;
 
 import javax.swing.JTextField;
+
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 /**
  * BaseMainWindow acts as a container for the UI initialization code generated
@@ -42,6 +47,8 @@ public class BaseMainWindow {
 	private JTextField conceptField;
 	private JScrollPane scrollPane;
 	private JButton okButton;
+	private FeatureList features;
+	private Constituent cons;
 
 	/**
 	 * Create the application.
@@ -70,46 +77,44 @@ public class BaseMainWindow {
 		okButton = new JButton("OK");
 
 		JPanel panel = new JPanel();
+		
+		JButton btnAdd = new JButton("Add");
+		btnAdd.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+					NewFeatureWindow frame = new NewFeatureWindow();
+					frame.setVisible(true);
+					//while(!frame.checker){
+					//}
+					features = frame.returnFeatures();
+					ConstitList constit= new ConstitList();
+					cons = new Constituent(labelField.getText(),conceptField.getText(), "", features, constit);
+			}
+		});
 		GroupLayout gl_infoPanel = new GroupLayout(infoPanel);
-		gl_infoPanel.setHorizontalGroup(gl_infoPanel.createParallelGroup(
-				Alignment.TRAILING).addGroup(
-				gl_infoPanel
-						.createSequentialGroup()
-						.addContainerGap()
-						.addComponent(panel, GroupLayout.DEFAULT_SIZE, 276,
-								Short.MAX_VALUE)
-						.addPreferredGap(ComponentPlacement.RELATED)
-						.addComponent(okButton).addContainerGap()));
-		gl_infoPanel
-				.setVerticalGroup(gl_infoPanel
-						.createParallelGroup(Alignment.TRAILING)
-						.addGroup(
-								gl_infoPanel
-										.createSequentialGroup()
-										.addContainerGap()
-										.addGroup(
-												gl_infoPanel
-														.createParallelGroup(
-																Alignment.LEADING)
-														.addGroup(
-																gl_infoPanel
-																		.createSequentialGroup()
-																		.addComponent(
-																				okButton,
-																				GroupLayout.PREFERRED_SIZE,
-																				48,
-																				GroupLayout.PREFERRED_SIZE)
-																		.addContainerGap())
-														.addGroup(
-																Alignment.TRAILING,
-																gl_infoPanel
-																		.createSequentialGroup()
-																		.addComponent(
-																				panel,
-																				GroupLayout.PREFERRED_SIZE,
-																				GroupLayout.DEFAULT_SIZE,
-																				GroupLayout.PREFERRED_SIZE)
-																		.addContainerGap()))));
+		gl_infoPanel.setHorizontalGroup(
+			gl_infoPanel.createParallelGroup(Alignment.TRAILING)
+				.addGroup(gl_infoPanel.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(panel, GroupLayout.DEFAULT_SIZE, 510, Short.MAX_VALUE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addGroup(gl_infoPanel.createParallelGroup(Alignment.LEADING, false)
+						.addComponent(btnAdd, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+						.addComponent(okButton, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+					.addContainerGap())
+		);
+		gl_infoPanel.setVerticalGroup(
+			gl_infoPanel.createParallelGroup(Alignment.TRAILING)
+				.addGroup(gl_infoPanel.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(panel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap())
+				.addGroup(Alignment.LEADING, gl_infoPanel.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(okButton)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(btnAdd)
+					.addContainerGap(23, Short.MAX_VALUE))
+		);
 
 		JLabel lblLabel = new JLabel("Label");
 
