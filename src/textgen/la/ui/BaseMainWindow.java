@@ -55,6 +55,7 @@ public class BaseMainWindow {
 	 */
 	public BaseMainWindow() {
 		initialize();
+		customInitialize();
 	}
 
 	/**
@@ -178,6 +179,14 @@ public class BaseMainWindow {
 								.addContainerGap(14, Short.MAX_VALUE)));
 		panel.setLayout(gl_panel);
 		infoPanel.setLayout(gl_infoPanel);
+	}
+	
+	/**
+	 * Runs any additional initialization that the WindowBuilder options don't cover
+	 */
+	private void customInitialize() {
+		// Speed up scrollbar scrolling
+		getScrollPane().getHorizontalScrollBar().setUnitIncrement(16);
 	}
 
 	protected JTextField getLabelField() {
