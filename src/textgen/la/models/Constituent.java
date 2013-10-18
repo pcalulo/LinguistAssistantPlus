@@ -13,9 +13,6 @@ public class Constituent {
 	private FeatureList featureList;
 	private ConstitList constList;
 	private int depthLevel;
-
-	JPanel parentPanel;
-	Box box;
 	
 	public Constituent(String label,String concept, String translation, FeatureList featureList, ConstitList constList){
 		this.label=label;
@@ -25,16 +22,13 @@ public class Constituent {
 		this.constList=constList;
 	}
 	
-	public Constituent(Node a, int parentDepth, JPanel parentPanel) {
+	public Constituent(Node a, int parentDepth) {
 		NamedNodeMap attr = a.getAttributes();
 		NodeList children = a.getChildNodes();
-		box = new Box();
 
 		featureList = new FeatureList();
 		depthLevel = parentDepth;
-		constList = new ConstitList(box);
-
-		this.parentPanel = parentPanel;
+		constList = new ConstitList();
 
 		/*
 		 * if (attr.getNamedItem("label").getNodeValue() != null) label =
@@ -59,8 +53,6 @@ public class Constituent {
 			if (node.getNodeName().equals("subconst"))
 				constList.setConstitNode(node, depthLevel);
 		}
-
-		createBox();
 	}
 
 	public String getLabel() {
@@ -87,6 +79,15 @@ public class Constituent {
 		return featureList;
 	}
 
+	public ConstitList getConstList() {
+		return constList;
+	}
+	
+	public int getDepthLevel()
+	{
+		return depthLevel;
+	}
+	
 	public void setTranslation(String translation) {
 		this.translation = translation;
 	}
@@ -118,16 +119,16 @@ public class Constituent {
 		return toPrint;
 	}
 
-	public void createBox() {
-		box.setConstituent(this);
-		box.setBackgroundColor(depthLevel);
-		parentPanel.add(box);
-	}
-	
-	public void recreateBox(JPanel newParent) {
-		parentPanel = newParent;
-		createBox();
-		
-		this.constList.recreateBoxes(box);
-	}
+//	public void createBox() {
+//		box.setConstituent(this);
+//		box.setBackgroundColor(depthLevel);
+//		parentPanel.add(box);
+//	}
+//	
+//	public void recreateBox(JPanel newParent) {
+//		parentPanel = newParent;
+//		createBox();
+//		
+//		this.constList.recreateBoxes(box);
+//	}
 }

@@ -10,14 +10,9 @@ import org.w3c.dom.NodeList;
 public class ConstitList {
 	ArrayList<Constituent> cons = new ArrayList<Constituent>();
 	int length, depthLevel;
-
-	JPanel panel;
 	
-	public ConstitList(){}
-	
-	public ConstitList(JPanel parentPanel) {
+	public ConstitList() {
 		length = 0;
-		this.panel = parentPanel;
 	}
 
 	public void setConstitNode(Node m, int parentDepth) {
@@ -30,7 +25,7 @@ public class ConstitList {
 			a = children.item(i);
 
 			if (a.getNodeName().equals("const")) {
-				cons.add(new Constituent(a, depthLevel, panel));
+				cons.add(new Constituent(a, depthLevel));
 				length++;
 			}
 		}
@@ -38,6 +33,11 @@ public class ConstitList {
 
 	public int getLength() {
 		return length;
+	}
+	
+	public Constituent getConstit(int index)
+	{
+		return cons.get(index);
 	}
 
 	public String toXMLString() {
@@ -60,9 +60,9 @@ public class ConstitList {
 		return toPrint;
 	}
 	
-	public void recreateBoxes(JPanel newParent) {
-		for (Constituent constit : cons) {
-			constit.recreateBox(newParent);
-		}
-	}
+//	public void recreateBoxes(JPanel newParent) {
+//		for (Constituent constit : cons) {
+//			constit.recreateBox(newParent);
+//		}
+//	}
 }

@@ -135,6 +135,8 @@ public class Box extends JPanel {
 		if (constituent.getLabel() == null) {
 			this.labelText.setText("CL");
 		}
+		
+		setBackgroundColor(constituent.getDepthLevel());
 	}
 
 	public void select() {

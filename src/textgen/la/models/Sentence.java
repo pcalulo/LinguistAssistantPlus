@@ -28,7 +28,7 @@ public class Sentence {
 			node = children.item(i);
 
 			if (node.getNodeName().equals("const"))
-				clauses.add(new Constituent(node, depthLevel, panel));
+				clauses.add(new Constituent(node, depthLevel));
 		}
 	}
 
@@ -50,13 +50,18 @@ public class Sentence {
 		return toPrint;
 	}
 	
-	public JPanel toBoxes() {
-		JPanel panel = new JPanel();
-		
-		for (Constituent clause : clauses) {
-			clause.recreateBox(panel);
-		}
-		
-		return panel;
+	public ArrayList<Constituent> getClauses()
+	{
+		return clauses;
 	}
+	
+//	public JPanel toBoxes() {
+//		JPanel panel = new JPanel();
+//		
+//		for (Constituent clause : clauses) {
+//			clause.recreateBox(panel);
+//		}
+//		
+//		return panel;
+//	}
 }

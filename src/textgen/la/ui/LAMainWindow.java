@@ -70,7 +70,11 @@ public class LAMainWindow extends BaseMainWindow {
 		panel.setBackground(Color.white);
 		Parser parser = new Parser(panel);
 		this.sentence = parser.getSentence();
-
+		
+		BoxCreator bc = new BoxCreator(this.sentence);
+		bc.displayBoxes();
+		panel.add(bc.getPanel());
+		
 		getScrollPane().setViewportView(panel);
 	}
 	
@@ -91,8 +95,8 @@ public class LAMainWindow extends BaseMainWindow {
 			selectedConstituent.setConcept(getConceptField().getText());
 		}
 		
-		JPanel boxes = sentence.toBoxes();
-		getScrollPane().setViewportView(boxes);
+//		JPanel boxes = sentence.toBoxes();
+//		getScrollPane().setViewportView(boxes);
 	}
 
 	public void setActiveConstituent(Constituent constituent) {
