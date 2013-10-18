@@ -80,9 +80,9 @@ public class Box extends JPanel {
 					Box.this.select();
 				} else if (button == me.BUTTON3) {
 					// Right click to show features
-					FeatureWindow fw = new FeatureWindow(
-							me.getLocationOnScreen());
-					fw.setFeatureWindowContent(constituent);
+					FeaturesDialog dialog = new FeaturesDialog();
+					dialog.setConstituent(constituent);
+					dialog.show();
 				}
 			}
 		});
