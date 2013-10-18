@@ -35,8 +35,19 @@ public class ConstitList {
 		return length;
 	}
 	
-	public Constituent getConstit(int index)
-	{
+	public void addConstituentToTail(Constituent c) {
+		cons.add(c);
+	}
+	
+	public void insertConstituent(Constituent c, int index) {
+		cons.add(index, c);
+	}
+	
+	public void removeConstit(int index) {
+		cons.remove(index);
+	}
+	
+	public Constituent getConstit(int index) {
 		return cons.get(index);
 	}
 

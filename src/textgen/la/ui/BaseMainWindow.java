@@ -86,8 +86,9 @@ public class BaseMainWindow {
 					//while(!frame.checker){
 					//}
 					features = frame.returnFeatures();
-					ConstitList constit= new ConstitList();
-					cons = new Constituent(labelField.getText(),conceptField.getText(), "", features, constit);
+					//cons = new Constituent(labelField.getText(),conceptField.getText(), features, new ConstitList(), <parent depth>);
+					
+					
 			}
 		});
 		GroupLayout gl_infoPanel = new GroupLayout(infoPanel);

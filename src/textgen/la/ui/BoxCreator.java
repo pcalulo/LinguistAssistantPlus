@@ -38,7 +38,7 @@ public class BoxCreator {
 		if (parentConstit == null)
 			return;
 		
-		ConstitList cList = parentConstit.getConstList();
+		ConstitList cList = parentConstit.getConstitList();
 		for (int i = 0; i < cList.getLength(); i++)
 		{
 			Constituent c = cList.getConstit(i);

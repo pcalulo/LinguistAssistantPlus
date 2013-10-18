@@ -1,6 +1,7 @@
 package textgen.la.models;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -21,8 +22,30 @@ public class FeatureList {
 		return length;
 	}
 	
-	public ArrayList<Feature> getFeatures() {
-		return features;
+	public Feature getFeature(int index) {
+		if (index < length)
+			return features.get(index);
+		return null;
+	}
+	
+	public void addFeature(Feature f) {
+		features.add(f);
+		
+		Collections.sort(features);
+	}
+	
+	public void removeFeature(Feature f) {
+		// removes first feature na same name with this one
+		for (int i = 0; i < length; i++) {
+			if (f.equals(features.get(i))) {
+				features.remove(i);
+				return;
+			}
+		}
+	}
+
+	public void removeFeature(int index) {
+		features.remove(index);
 	}
 
 	public void setFeatureNode(Node m, int parentDepth) {
@@ -60,5 +83,9 @@ public class FeatureList {
 		toPrint += depth + "</features>";
 
 		return toPrint;
+	}
+
+	public ArrayList<Feature> getFeatures() {
+		return features;
 	}
 }

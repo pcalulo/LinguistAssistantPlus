@@ -4,7 +4,7 @@ import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-public class Feature {
+public class Feature implements Comparable <Feature> {
 	private String name, value;
 	private int depthLevel;
 
@@ -12,7 +12,7 @@ public class Feature {
 		name = n;
 		value = val;
 	}
-
+	
 	public Feature(Node a, int parentDepth) {
 		NamedNodeMap attr = a.getAttributes();
 		NodeList m = a.getChildNodes();
@@ -35,13 +35,20 @@ public class Feature {
 		}
 	}
 
-	// probs don't need setters, immutable class nalang muna tayo
 	public String getName() {
 		return name;
 	}
 
 	public String getValue() {
 		return value;
+	}
+	
+	public void setName(String newName) {
+		name = newName;
+	}
+
+	public void setValue(String newValue) {
+		value= newValue;
 	}
 
 	public String toXMLString() {
@@ -57,5 +64,9 @@ public class Feature {
 		toPrint += depth + "\t<value>" + value + "</value>\n";
 
 		return toPrint + depth + "</feature>";
+	}
+
+	public int compareTo(Feature f) {
+		return this.name.compareTo(f.name);
 	}
 }

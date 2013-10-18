@@ -20,7 +20,7 @@ public class Window extends JFrame {
 	public Window() {
 		panel = new JPanel();
 		panel.setBackground(Color.white);
-		parser = new Parser(panel);
+		parser = new Parser();
 
 		setTitle("TEXTGEN LA+");
 		setMinimumSize(new Dimension(640, 480));
