@@ -27,7 +27,8 @@ public class Box extends JPanel {
 		add(labelText);
 		add(conceptText);
 
-		conceptText.setFont(new Font("Arial", Font.ITALIC, 12));
+		labelText.setFont(new Font("Arial", Font.BOLD, 20));
+		conceptText.setFont(new Font("Arial", Font.ITALIC, 16));
 		initMouseListener();
 
 		if (boxes == null) {
