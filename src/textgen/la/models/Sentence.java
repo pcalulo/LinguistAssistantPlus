@@ -18,12 +18,10 @@ public class Sentence {
 
 	}
 
-	public Sentence(Element root, JPanel parentPanel) {
+	public Sentence(Element root) {
 		NodeList children = root.getChildNodes();
 		Node node;
 
-		this.panel = parentPanel;
-		
 		for (int i = 0; i < children.getLength(); i++) {
 			node = children.item(i);
 

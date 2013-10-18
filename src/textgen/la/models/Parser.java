@@ -13,7 +13,6 @@ public class Parser {
 	DocumentBuilder builder;
 	Document docu;
 
-	JPanel panel;
 	private Sentence sentence;
 
 	public Sentence readXMLFile(String bookName, String sentenceNo) {
@@ -27,7 +26,7 @@ public class Parser {
 			docu.getDocumentElement().normalize();
 			Element root = docu.getDocumentElement(); // root
 
-			return new Sentence(root, panel);
+			return new Sentence(root);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
@@ -50,8 +49,7 @@ public class Parser {
 		}
 	}
 
-	public Parser(JPanel panel) {
-		this.panel = panel;
+	public Parser() {
 		this.sentence = readXMLFile("InfectedEye", "1");
 		System.out.println(sentence.toXMLString());
 		writeToFile("InfectedEye", "1", sentence);

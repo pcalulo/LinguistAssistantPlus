@@ -14,14 +14,46 @@ public class Constituent {
 	private ConstitList constList;
 	private int depthLevel;
 	
-	public Constituent(String label,String concept, String translation, FeatureList featureList, ConstitList constList){
+	public Constituent(String label, String concept, String translation, int parentDepth){
 		this.label=label;
 		this.concept=concept;
 		this.translation=translation;
-		this.featureList=featureList;
-		this.constList=constList;
+		
+		depthLevel = parentDepth+1;
+		
+		featureList = new FeatureList();
+		constList = new ConstitList();
 	}
 	
+	public Constituent(String label, String concept, String translation, FeatureList features, ConstitList subconstits, int parentDepth){
+		this.label=label;
+		this.concept=concept;
+		this.translation=translation;
+
+		depthLevel = parentDepth+1;
+
+		featureList = features;
+		constList = subconstits;
+	}
+
+	// OPERATIONS
+	public void addFeature(Feature f) {
+		featureList.addFeature(f);
+	}
+	
+	public FeatureList getFeatureList() {
+		return featureList;
+	}
+	
+	public void addSubConstit(Constituent c, int index) {
+		constList.insertConstituent(c, index);
+	}
+	
+	public ConstitList getConstitList() {
+		return constList;
+	}
+	
+	// XML STUFF
 	public Constituent(Node a, int parentDepth) {
 		NamedNodeMap attr = a.getAttributes();
 		NodeList children = a.getChildNodes();
@@ -54,44 +86,7 @@ public class Constituent {
 				constList.setConstitNode(node, depthLevel);
 		}
 	}
-
-	public String getLabel() {
-		return label;
-	}
-
-	public void setLabel(String label) {
-		this.label = label;
-	}
-
-	public String getConcept() {
-		return concept;
-	}
-
-	public void setConcept(String concept) {
-		this.concept = concept;
-	}
-
-	public String getTranslation() {
-		return translation;
-	}
-
-	public FeatureList getFeatureList() {
-		return featureList;
-	}
-
-	public ConstitList getConstList() {
-		return constList;
-	}
 	
-	public int getDepthLevel()
-	{
-		return depthLevel;
-	}
-	
-	public void setTranslation(String translation) {
-		this.translation = translation;
-	}
-
 	public String toXMLString() {
 		String depth = "";
 
@@ -118,7 +113,38 @@ public class Constituent {
 
 		return toPrint;
 	}
+	
+	//SETTERS
+	public void setLabel(String l) {
+		label = l;
+	}
+	
+	public void setConcept(String c) {
+		concept = c;
+	}
+	
+	public void setTranslation(String t) {
+		translation = t;
+	}
+	
+	//GETTERS
+	public String getLabel() {
+		return label;
+	}
 
+	public String getConcept() {
+		return concept;
+	}
+
+	public String getTranslation() {
+		return translation;
+	}
+	
+	public int getDepthLevel()
+	{
+		return depthLevel;
+	}
+	
 //	public void createBox() {
 //		box.setConstituent(this);
 //		box.setBackgroundColor(depthLevel);

@@ -68,7 +68,7 @@ public class LAMainWindow extends BaseMainWindow {
 
 		panel = new JPanel();
 		panel.setBackground(Color.white);
-		Parser parser = new Parser(panel);
+		Parser parser = new Parser();
 		this.sentence = parser.getSentence();
 		
 		BoxCreator bc = new BoxCreator(this.sentence);
