@@ -2,6 +2,8 @@ package textgen.la.ui;
 
 import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -24,7 +26,7 @@ import textgen.la.models.Sentence;
 public class LAMainWindow extends BaseMainWindow {
 
 	public static LAMainWindow instance;
-	
+
 	private Sentence sentence;
 	private Constituent selectedConstituent;
 
@@ -70,33 +72,56 @@ public class LAMainWindow extends BaseMainWindow {
 		panel.setBackground(Color.white);
 		Parser parser = new Parser();
 		this.sentence = parser.getSentence();
-		
+
 		BoxCreator bc = new BoxCreator(this.sentence);
 		bc.displayBoxes();
-		panel.add(bc.getPanel());
-		
+
+		/*
+		 * This is a messy attempt at vertically centering the box UI. Using a
+		 * GridBagLayout, two JPanels, one on top and one below the boxes,
+		 * occupy all extra vertical space. We can use these panels later on to
+		 * contain additional info about the constituents.
+		 */
+		panel.setLayout(new GridBagLayout());
+		GridBagConstraints c = new GridBagConstraints();
+
+		c.fill = GridBagConstraints.BOTH;
+		c.gridx = 0;
+		c.gridy = 0;
+		c.weightx = 1;
+		c.weighty = 1;
+		panel.add(new JPanel(), c);
+
+		c.weighty = 0;
+		c.gridy = 1;
+		panel.add(bc.getPanel(), c);
+
+		c.weighty = 1;
+		c.gridy = 2;
+		panel.add(new JPanel(), c);
+
 		getScrollPane().setViewportView(panel);
 	}
-	
+
 	private void initUiComponents() {
 		JButton okButton = getOkButton();
 		okButton.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				LAMainWindow.this.onModifyConstituent();
 			}
 		});
 	}
-	
+
 	private void onModifyConstituent() {
 		if (selectedConstituent != null) {
 			selectedConstituent.setLabel(getLabelField().getText());
 			selectedConstituent.setConcept(getConceptField().getText());
 		}
-		
-//		JPanel boxes = sentence.toBoxes();
-//		getScrollPane().setViewportView(boxes);
+
+		// JPanel boxes = sentence.toBoxes();
+		// getScrollPane().setViewportView(boxes);
 	}
 
 	public void setActiveConstituent(Constituent constituent) {
