@@ -68,6 +68,7 @@ public class LexNewStemDialog extends JDialog {
 		setModalExclusionType(ModalExclusionType.APPLICATION_EXCLUDE);
 		setModalityType(ModalityType.APPLICATION_MODAL);
 		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+		
 		setTitle("New Stem");
 		setBounds(100, 100, 381, 114);
 		getContentPane().setLayout(new BorderLayout());
@@ -117,12 +118,18 @@ public class LexNewStemDialog extends JDialog {
 			}
 			{
 				JButton cancelButton = new JButton("Cancel");
+				cancelButton.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						dispose();
+					}
+				});
 				cancelButton.setActionCommand("Cancel");
 				buttonPane.add(cancelButton);
 			}
 		}
 
 		customInitialize();
+		setVisible(true);
 	}
 
 	/**

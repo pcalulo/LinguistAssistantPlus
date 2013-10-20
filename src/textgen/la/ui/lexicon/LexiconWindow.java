@@ -84,41 +84,52 @@ public class LexiconWindow extends JFrame {
 		gbl_buttonPanel.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		buttonPanel.setLayout(gbl_buttonPanel);
 		
-				JButton btnAdd = new JButton("Add New Stem");
-				btnAdd.addActionListener(new ActionListener() {
+				JButton btnAddStem = new JButton("Add New Stem");
+				btnAddStem.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						onAddButtonClick();
+						onAddStemClick();
 					}
 				});
-				GridBagConstraints gbc_btnAdd = new GridBagConstraints();
-				gbc_btnAdd.fill = GridBagConstraints.HORIZONTAL;
-				gbc_btnAdd.insets = new Insets(0, 0, 5, 0);
-				gbc_btnAdd.gridx = 0;
-				gbc_btnAdd.gridy = 0;
-				buttonPanel.add(btnAdd, gbc_btnAdd);
+				GridBagConstraints gbc_btnAddStem = new GridBagConstraints();
+				gbc_btnAddStem.fill = GridBagConstraints.HORIZONTAL;
+				gbc_btnAddStem.insets = new Insets(0, 0, 5, 0);
+				gbc_btnAddStem.gridx = 0;
+				gbc_btnAddStem.gridy = 0;
+				buttonPanel.add(btnAddStem, gbc_btnAddStem);
 		
-				JButton btnRemove = new JButton("Add New Feature");
-				btnRemove.addActionListener(new ActionListener() {
+				JButton btnAddFeature = new JButton("Add New Feature");
+				btnAddFeature.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						onRemoveButtonClick();
+						onAddFeatureClick();
 					}
 				});
-				GridBagConstraints gbc_btnRemove = new GridBagConstraints();
-				gbc_btnRemove.fill = GridBagConstraints.HORIZONTAL;
-				gbc_btnRemove.insets = new Insets(0, 0, 5, 0);
-				gbc_btnRemove.gridx = 0;
-				gbc_btnRemove.gridy = 1;
-				buttonPanel.add(btnRemove, gbc_btnRemove);
+				GridBagConstraints gbc_btnAddFeature = new GridBagConstraints();
+				gbc_btnAddFeature.fill = GridBagConstraints.HORIZONTAL;
+				gbc_btnAddFeature.insets = new Insets(0, 0, 5, 0);
+				gbc_btnAddFeature.gridx = 0;
+				gbc_btnAddFeature.gridy = 1;
+				buttonPanel.add(btnAddFeature, gbc_btnAddFeature);
 		
-		JButton btnEditFeature = new JButton("Edit a Feature");
-		GridBagConstraints gbc_btnEditFeature = new GridBagConstraints();
-		gbc_btnEditFeature.fill = GridBagConstraints.HORIZONTAL;
-		gbc_btnEditFeature.insets = new Insets(0, 0, 5, 0);
-		gbc_btnEditFeature.gridx = 0;
-		gbc_btnEditFeature.gridy = 2;
-		buttonPanel.add(btnEditFeature, gbc_btnEditFeature);
-		
-		JButton btnEditForms = new JButton("Edit Forms");
+				JButton btnEditFeature = new JButton("Edit a Feature");
+				btnEditFeature.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent arg0) {
+						onEditFeatureClick();
+					}
+				});
+				
+				GridBagConstraints gbc_btnEditFeature = new GridBagConstraints();
+				gbc_btnEditFeature.fill = GridBagConstraints.HORIZONTAL;
+				gbc_btnEditFeature.insets = new Insets(0, 0, 5, 0);
+				gbc_btnEditFeature.gridx = 0;
+				gbc_btnEditFeature.gridy = 2;
+				buttonPanel.add(btnEditFeature, gbc_btnEditFeature);
+				
+				JButton btnEditForms = new JButton("Edit Forms");
+				btnEditForms.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						onEditFormsClick();
+					}
+				});
 		GridBagConstraints gbc_btnEditForms = new GridBagConstraints();
 		gbc_btnEditForms.fill = GridBagConstraints.HORIZONTAL;
 		gbc_btnEditForms.gridx = 0;
@@ -253,24 +264,48 @@ public class LexiconWindow extends JFrame {
 
 	// == Event handlers! ==
 
-	protected void onAddButtonClick() {
-		int selectedRowIndex = getFeaturesTable().getSelectedRow();
-		FeatureTableModel ftm = (FeatureTableModel) getFeaturesTable()
-				.getModel();
-
-		System.out.println(selectedRowIndex);
-
-		ftm.insertEmptyRow(selectedRowIndex);
+	protected void onAddStemClick() {
+//		int selectedRowIndex = getFeaturesTable().getSelectedRow();
+//		FeatureTableModel ftm = (FeatureTableModel) getFeaturesTable()
+//				.getModel();
+//
+//		System.out.println(selectedRowIndex);
+//
+//		ftm.insertEmptyRow(selectedRowIndex);
+		new LexNewStemDialog();
 	}
 
-	protected void onRemoveButtonClick() {
-		int selectedRowIndex = getFeaturesTable().getSelectedRow();
-		FeatureTableModel ftm = (FeatureTableModel) getFeaturesTable()
-				.getModel();
-
-		if (selectedRowIndex >= 0) {
-			ftm.removeRowAt(selectedRowIndex);
-		}
+	protected void onAddFeatureClick() {
+//		int selectedRowIndex = getFeaturesTable().getSelectedRow();
+//		FeatureTableModel ftm = (FeatureTableModel) getFeaturesTable()
+//				.getModel();
+//
+//		if (selectedRowIndex >= 0) {
+//			ftm.removeRowAt(selectedRowIndex);
+//		}
+		new LexNewFeatureDialog();
+	}
+	
+	protected void onEditFeatureClick() {
+//		int selectedRowIndex = getFeaturesTable().getSelectedRow();
+//		FeatureTableModel ftm = (FeatureTableModel) getFeaturesTable()
+//				.getModel();
+//
+//		if (selectedRowIndex >= 0) {
+//			ftm.removeRowAt(selectedRowIndex);
+//		}
+		new LexEditFeaturesDialog();
+	}
+	
+	protected void onEditFormsClick() {
+//		int selectedRowIndex = getFeaturesTable().getSelectedRow();
+//		FeatureTableModel ftm = (FeatureTableModel) getFeaturesTable()
+//				.getModel();
+//
+//		if (selectedRowIndex >= 0) {
+//			ftm.removeRowAt(selectedRowIndex);
+//		}
+		new LexEditFormsDialog();
 	}
 
 	public Constituent getConstituent() {
