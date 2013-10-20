@@ -18,9 +18,10 @@ public class BoxCreator {
 		sentence = s;
 		
 		panel = new JPanel();
+		createBoxes();
 	}
 	
-	public void displayBoxes() 
+	private void createBoxes() 
 	{
 		//PRINT VALUES
 		ArrayList<Constituent> clauses = sentence.getClauses();

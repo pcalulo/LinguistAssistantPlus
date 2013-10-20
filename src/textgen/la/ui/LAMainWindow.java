@@ -34,7 +34,8 @@ import textgen.la.ui.displaymodels.LinguistTextTreeModel;
  * @author Lawrence Patrick Calulo
  * 
  */
-public class LAMainWindow extends BaseMainWindow implements VerseSelectionListener {
+public class LAMainWindow extends BaseMainWindow implements
+		VerseSelectionListener {
 
 	public static LAMainWindow instance;
 
@@ -76,20 +77,14 @@ public class LAMainWindow extends BaseMainWindow implements VerseSelectionListen
 
 	public LAMainWindow() {
 		super();
-		initializeBoxInterface();
 		initUiComponents();
 	}
 
-	private void initializeBoxInterface() {
+	private void initializeBoxInterface(BoxCreator bc) {
 		JPanel panel;
 
 		panel = new JPanel();
 		panel.setBackground(Color.white);
-		Parser parser = new Parser();
-		this.sentence = parser.getSentence();
-
-		BoxCreator bc = new BoxCreator(this.sentence);
-		bc.displayBoxes();
 
 		/*
 		 * This is a messy attempt at vertically centering the box UI. Using a
@@ -191,7 +186,8 @@ public class LAMainWindow extends BaseMainWindow implements VerseSelectionListen
 
 	@Override
 	protected void onSelectVerseClick() {
-		LinguistTextNavigatorDialog dialog = new LinguistTextNavigatorDialog(this.getWindowForm(), this);
+		LinguistTextNavigatorDialog dialog = new LinguistTextNavigatorDialog(
+				this.getWindowForm(), this);
 		dialog.setLinguistText(getLinguistText());
 		dialog.setVisible(true);
 	}
@@ -200,5 +196,7 @@ public class LAMainWindow extends BaseMainWindow implements VerseSelectionListen
 	public void onVerseSelected(LinguistText linguistText,
 			VerseReference verseRef) {
 		Sentence sentence = verseRef.getVerse();
+		BoxCreator bc = new BoxCreator(sentence);
+		initializeBoxInterface(bc);
 	}
 }

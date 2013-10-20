@@ -72,6 +72,7 @@ public class VerseReference implements TreeNode {
 		Parser parser = new Parser(file);
 		
 		sentence = parser.getSentence();
+		logger.info(sentence.toXMLString());
 		
 		return sentence;
 	}

@@ -49,12 +49,6 @@ public class Parser {
 		}
 	}
 
-	public Parser() {
-		this.sentence = readXMLFile("InfectedEye", "1");
-		System.out.println(sentence.toXMLString());
-		writeToFile("InfectedEye", "1", sentence);
-	}
-
 	public Parser(File file) {
 		try {
 			factory = DocumentBuilderFactory.newInstance();
