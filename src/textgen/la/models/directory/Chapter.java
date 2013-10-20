@@ -47,6 +47,10 @@ public class Chapter implements TreeNode {
 
 	public void setVerseReferences(List<VerseReference> verseRefs) {
 		this.verseRefs = verseRefs;
+		
+		for (VerseReference verseRef : verseRefs) {
+			verseRef.setChapter(this);
+		}
 	}
 
 	public void addVerseReference(VerseReference verseRef) {

@@ -48,8 +48,10 @@ public class ManifestReader {
 
 		document.getDocumentElement().normalize();
 
-		// Get text name
-		LinguistText lingText = new LinguistText();
+		// Create the LinguistText, passing in its parent directory
+		// VerseReferences will use this directory as a starting point to load
+		// verse XML files.
+		LinguistText lingText = new LinguistText(file.getParentFile());
 
 		Node textNode = document.getChildNodes().item(0);
 		NamedNodeMap attrs = textNode.getAttributes();

@@ -1,5 +1,7 @@
 package textgen.la.models.directory;
 
+import java.io.File;
+import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Iterator;
 import java.util.List;
@@ -10,6 +12,13 @@ import javax.swing.tree.TreeNode;
 public class LinguistText implements TreeNode {
 	private String name;
 	private List<Chapter> chapters;
+	private File directory;
+	
+	public LinguistText(File directory) {
+		setDirectory(directory);
+		
+		chapters = new ArrayList<>();
+	}
 
 	public String getName() {
 		return name;
@@ -21,6 +30,10 @@ public class LinguistText implements TreeNode {
 
 	public void setChapters(List<Chapter> chapters) {
 		this.chapters = chapters;
+		
+		for (Chapter chapter : chapters) {
+			chapter.setLinguistText(this);
+		}
 	}
 
 	public List<Chapter> getChapters() {
@@ -35,6 +48,14 @@ public class LinguistText implements TreeNode {
 		this.chapters.remove(chapter);
 	}
 
+	public File getDirectory() {
+		return directory;
+	}
+
+	public void setDirectory(File directory) {
+		this.directory = directory;
+	}
+
 	public void printContents() {
 		System.out.println("LinguistText: " + getName());
 		System.out.println("Chapters:");
@@ -47,7 +68,7 @@ public class LinguistText implements TreeNode {
 	public String toString() {
 		return getName();
 	}
-	
+
 	// TreeNode methods
 
 	@Override

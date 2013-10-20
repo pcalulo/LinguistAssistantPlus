@@ -199,6 +199,6 @@ public class LAMainWindow extends BaseMainWindow implements VerseSelectionListen
 	@Override
 	public void onVerseSelected(LinguistText linguistText,
 			VerseReference verseRef) {
-		verseRef.getVerse();
+		Sentence sentence = verseRef.getVerse();
 	}
 }

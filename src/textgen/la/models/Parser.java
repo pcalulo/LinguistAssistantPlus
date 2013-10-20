@@ -54,7 +54,21 @@ public class Parser {
 		System.out.println(sentence.toXMLString());
 		writeToFile("InfectedEye", "1", sentence);
 	}
-	
+
+	public Parser(File file) {
+		try {
+			factory = DocumentBuilderFactory.newInstance();
+			builder = factory.newDocumentBuilder();
+			docu = builder.parse(file);
+			docu.getDocumentElement().normalize();
+			Element root = docu.getDocumentElement(); // root
+
+			this.sentence = new Sentence(root);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
 	public Sentence getSentence() {
 		return sentence;
 	}
