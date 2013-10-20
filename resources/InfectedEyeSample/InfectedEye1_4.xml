@@ -1,352 +1,352 @@
 <sentence>
-	<const label = "CL">
+	<const label="CL">
 		<features>
-			<feature name = "Salience Band">Primary Storyline</feature>
-			<feature name = "Sequence">Not in a Sequence</feature>
+			<feature name="Salience Band">Primary Storyline</feature>
+			<feature name="Sequence">Not in a Sequence</feature>
 		</features>
 		<subconst>
-			<const label = "Conj" concept = "then" sense = "A"></const>
-			<const label = "NP">
+			<const label="Conj" concept="then" sense="A"></const>
+			<const label="NP">
 				<features>
-					<feature name = "Sequence">Not in a Sequence</feature>
-					<feature name = "Semantic Role">Most Agent-like</feature>
-					<feature name = "Grammatical Relation">Subject</feature>
+					<feature name="Sequence">Not in a Sequence</feature>
+					<feature name="Semantic Role">Most Agent-like</feature>
+					<feature name="Grammatical Relation">Subject</feature>
 				</features>
 				<subconst>
-					<const label = "N" concept = "Janet" sense = "A">
+					<const label="N" concept="Janet" sense="A">
 						<features>
-							<feature name = "Participant Tracking">Routine</feature>
-							<feature name = "Person">Third</feature>
-							<feature name = "Noun List Index">1</feature> 
+							<feature name="Participant Tracking">Routine</feature>
+							<feature name="Person">Third</feature>
+							<feature name="Noun List Index">1</feature>
 						</features>
 					</const>
 				</subconst>
 			</const>
-			<const label = "VP">
+			<const label="VP">
 				<features>
-					<feature name = "Sequence">Not in a Sequence</feature>
+					<feature name="Sequence">Not in a Sequence</feature>
 				</features>
 				<subconst>
-					<const label = "V" concept = "say" sense = "A">
+					<const label="V" concept="say" sense="A">
 						<features>
-							<feature name = "Time">Past</feature>
-							<feature name = "Mood">Indicative</feature>
+							<feature name="Time">Past</feature>
+							<feature name="Mood">Indicative</feature>
 						</features>
 					</const>
 				</subconst>
 			</const>
-			<const label = "NP">
+			<const label="NP">
 				<features>
-					<feature name = "Sequence">Not in a Sequence</feature>
-					<feature name = "Semantic Role">Destination</feature>
-					<feature name = "Grammatical Relation">Oblique</feature>
+					<feature name="Sequence">Not in a Sequence</feature>
+					<feature name="Semantic Role">Destination</feature>
+					<feature name="Grammatical Relation">Oblique</feature>
 				</features>
 				<subconst>
-					<const label = "N" concept = "Melissa" sense = "A">
+					<const label="N" concept="Melissa" sense="A">
 						<features>
-							<feature name = "Participant Tracking">Routine</feature>
-							<feature name = "Person">Third</feature>
-							<feature name = "Noun List Index">2</feature>
+							<feature name="Participant Tracking">Routine</feature>
+							<feature name="Person">Third</feature>
+							<feature name="Noun List Index">2</feature>
 						</features>
 					</const>
 				</subconst>
 			</const>
-			<const label = "CL">
+			<const label="CL">
 				<features>
-					<feature name = "Salience Band">Primary Storyline</feature>
-					<feature name = "Sequence">Not in a Sequence</feature>
+					<feature name="Salience Band">Primary Storyline</feature>
+					<feature name="Sequence">Not in a Sequence</feature>
 				</features>
 				<subconst>
-					<const label = "Par" concept = " '' " sense = "A"></const>
-					<const label = "NP">
+					<const label="Par" concept=" '' " sense="A"></const>
+					<const label="NP">
 						<features>
-							<feature name = "Sequence">Not in a Sequence</feature>
-							<feature name = "Semantic Role">Most Agent-like</feature>
-							<feature name = "Grammatical Relation">Subject</feature>
+							<feature name="Sequence">Not in a Sequence</feature>
+							<feature name="Semantic Role">Most Agent-like</feature>
+							<feature name="Grammatical Relation">Subject</feature>
 						</features>
 						<subconst>
-							<const label = "N" concept = "Melissa" sense = "A">
+							<const label="N" concept="Melissa" sense="A">
 								<features>
-									<feature name = "Participant Tracking">Routine</feature>
-									<feature name = "Person">Second</feature>
-									<feature name = "Noun List Index">2</feature>
+									<feature name="Participant Tracking">Routine</feature>
+									<feature name="Person">Second</feature>
+									<feature name="Noun List Index">2</feature>
 								</features>
 							</const>
 						</subconst>
 					</const>
-					<const label = "VP">
+					<const label="VP">
 						<features>
-							<feature name = "Sequence">Not in a Sequence</feature>
+							<feature name="Sequence">Not in a Sequence</feature>
 						</features>
 						<subconst>
-							<const label = "V" concept = "look" sense = "A">
+							<const label="V" concept="look" sense="A">
 								<features>
-									<feature name = "Time">Future</feature>
-									<feature name = "Mood">Indicative</feature>
+									<feature name="Time">Future</feature>
+									<feature name="Mood">Indicative</feature>
 								</features>
 							</const>
 						</subconst>
 					</const>
-					<const label = "NP">
+					<const label="NP">
 						<features>
-							<feature name = "Sequence">Not in a Sequence</feature>
-							<feature name = "Semantic Role">Most Patient-like</feature>
-							<feature name = "Grammatical Relation">Object</feature>
+							<feature name="Sequence">Not in a Sequence</feature>
+							<feature name="Semantic Role">Most Patient-like</feature>
+							<feature name="Grammatical Relation">Object</feature>
 						</features>
 						<subconst>
-							<const label = "N" concept = "eye" sense = "A">
+							<const label="N" concept="eye" sense="A">
 								<features>
-									<feature name = "Participant Tracking">Routine</feature>
-									<feature name = "Person">Third</feature>
-									<feature name = "Noun List Index">3</feature>
+									<feature name="Participant Tracking">Routine</feature>
+									<feature name="Person">Third</feature>
+									<feature name="Noun List Index">3</feature>
 								</features>
 							</const>
 						</subconst>
 					</const>
-					<const label = "NP">
+					<const label="NP">
 						<features>
-							<feature name = "Sequence">Not in a Sequence</feature>
-							<feature name = "Semantic Role">Not Applicable</feature>
-							<feature name = "Grammatical Relation">No Grammatical Relation</feature>
+							<feature name="Sequence">Not in a Sequence</feature>
+							<feature name="Semantic Role">Not Applicable</feature>
+							<feature name="Grammatical Relation">No Grammatical Relation</feature>
 						</features>
 					</const>
-					<const label = "Adp" concept = "" sense = "A"></const>
-					<const label = "N" concept = "Janet" sense = "A">
+					<const label="Adp" concept="" sense="A"></const>
+					<const label="N" concept="Janet" sense="A">
 						<features>
-							<feature name = "Participant Tracking">Routine</feature>
-							<feature name = "Person">First</feature>
-							<feature name = "Noun List Index">1</feature>
+							<feature name="Participant Tracking">Routine</feature>
+							<feature name="Person">First</feature>
+							<feature name="Noun List Index">1</feature>
 						</features>
 					</const>
-					<const label = "Par" concept = "please" sense = "A"></const>
-					<const label = "CL">
+					<const label="Par" concept="please" sense="A"></const>
+					<const label="CL">
 						<features>
-							<feature name = "Salience Band">Primary Storyline</feature>
-							<feature name = "Sequence">Not in a Sequence</feature>
+							<feature name="Salience Band">Primary Storyline</feature>
+							<feature name="Sequence">Not in a Sequence</feature>
 						</features>
 						<subconst>
-							<const label = "Adp" concept = "because" sense = "A"></const>
-							<const label = "NP">
+							<const label="Adp" concept="because" sense="A"></const>
+							<const label="NP">
 								<features>
-									<feature name = "Sequence">Not in a Sequence</feature>
-									<feature name = "Semantic Role">Most Agent-like</feature>
-									<feature name = "Grammatical Relation">Subject</feature>
+									<feature name="Sequence">Not in a Sequence</feature>
+									<feature name="Semantic Role">Most Agent-like</feature>
+									<feature name="Grammatical Relation">Subject</feature>
 								</features>
 								<subconst>
-									<const label = "N" concept = "eye" sense = "A">
+									<const label="N" concept="eye" sense="A">
 										<features>
-											<feature name = "Participant Tracking">Routine</feature>
-											<feature name = "Person">Third</feature>
-											<feature name = "Noun List Index">3</feature>
+											<feature name="Participant Tracking">Routine</feature>
+											<feature name="Person">Third</feature>
+											<feature name="Noun List Index">3</feature>
 										</features>
 									</const>
 								</subconst>
 							</const>
-							<const label = "NP">
+							<const label="NP">
 								<features>
-									<feature name = "Sequence">Not in a Sequence</feature>
-									<feature name = "Semantic Role">Not Applicable</feature>
-									<feature name = "Grammatical Relation">No Grammatical Relation</feature>
+									<feature name="Sequence">Not in a Sequence</feature>
+									<feature name="Semantic Role">Not Applicable</feature>
+									<feature name="Grammatical Relation">No Grammatical Relation</feature>
 								</features>
 							</const>
-							<const label = "Adp" concept = "" sense = "A"></const>
-							<const label = "N" concept = "Janet" sense = "A">
+							<const label="Adp" concept="" sense="A"></const>
+							<const label="N" concept="Janet" sense="A">
 								<features>
-									<feature name = "Participant Tracking">Routine</feature>
-									<feature name = "Person">First</feature>
-									<feature name = "Noun List Index">1</feature>
+									<feature name="Participant Tracking">Routine</feature>
+									<feature name="Person">First</feature>
+									<feature name="Noun List Index">1</feature>
 								</features>
 							</const>
-							<const label = "AdvP">
+							<const label="AdvP">
 								<features>
-									<feature name = "Sequence">Not in a Sequence</feature>
+									<feature name="Sequence">Not in a Sequence</feature>
 								</features>
 								<subconst>
-									<const label = "Adv" concept = "also" sense = "C">
+									<const label="Adv" concept="also" sense="C">
 										<features>
-											<feature name = "Location">Pre-verbal</feature>
+											<feature name="Location">Pre-verbal</feature>
 										</features>
 									</const>
 								</subconst>
 							</const>
-							<const label = "VP">
+							<const label="VP">
 								<features>
-									<feature name = "Sequence">Not in a Sequence</feature>
+									<feature name="Sequence">Not in a Sequence</feature>
 								</features>
 								<subconst>
-									<const label = "V" concept = "be" sense = "D">
+									<const label="V" concept="be" sense="D">
 										<features>
-											<feature name = "Time">Present</feature>
-											<feature name = "Mood">Indicative</feature>
+											<feature name="Time">Present</feature>
+											<feature name="Mood">Indicative</feature>
 										</features>
 									</const>
 								</subconst>
 							</const>
-							<const label = "AdjP">
+							<const label="AdjP">
 								<features>
-									<feature name = "Sequence">Not in a Sequence</feature>
-									<feature name = "Usage">Predicative</feature>
+									<feature name="Sequence">Not in a Sequence</feature>
+									<feature name="Usage">Predicative</feature>
 								</features>
 								<subconst>
-									<const label = "Adj" concept = "sore" sense = "A">
+									<const label="Adj" concept="sore" sense="A">
 										<features>
-											<feature name = "Type">Descriptive</feature>
+											<feature name="Type">Descriptive</feature>
 										</features>
 									</const>
 								</subconst>
 							</const>
-							<const label = "Par" concept = " ~ " sense = "A"></const>	
+							<const label="Par" concept=" ~ " sense="A"></const>
 						</subconst>
 					</const>
 				</subconst>
 			</const>
 		</subconst>
 	</const>
-	<const label = "CL">
+	<const label="CL">
 		<features>
-			<feature name = "Salience Band">Primary Storyline</feature>
-			<feature name = "Sequence">Not in a Sequence</feature>
+			<feature name="Salience Band">Primary Storyline</feature>
+			<feature name="Sequence">Not in a Sequence</feature>
 		</features>
 		<subconst>
-			<const label = "Conj" concept = "so" sense = "A"></const>
-			<const label = "NP">
+			<const label="Conj" concept="so" sense="A"></const>
+			<const label="NP">
 				<features>
-					<feature name = "Sequence">Not in a Sequence</feature>
-					<feature name = "Semantic Role">Most Agent-like</feature>
-					<feature name = "Grammatical Relation">Subject</feature>
+					<feature name="Sequence">Not in a Sequence</feature>
+					<feature name="Semantic Role">Most Agent-like</feature>
+					<feature name="Grammatical Relation">Subject</feature>
 				</features>
 				<subconst>
-					<const label = "N" concept = "Melissa" sense = "A">
+					<const label="N" concept="Melissa" sense="A">
 						<features>
-							<feature name = "Participant Tracking">Routine</feature>
-							<feature name = "Person">Third</feature>
-							<feature name = "Noun List Index">2</feature>
+							<feature name="Participant Tracking">Routine</feature>
+							<feature name="Person">Third</feature>
+							<feature name="Noun List Index">2</feature>
 						</features>
 					</const>
 				</subconst>
 			</const>
-			<const label = "VP">
+			<const label="VP">
 				<features>
-					<feature name = "Sequence">Not in a Sequence</feature>
+					<feature name="Sequence">Not in a Sequence</feature>
 				</features>
 				<subconst>
-					<const label = "V" concept = "look" sense = "D">
+					<const label="V" concept="look" sense="D">
 						<features>
-							<feature name = "Time">Past</feature>
-							<feature name = "Mood">Indicative</feature>
+							<feature name="Time">Past</feature>
+							<feature name="Mood">Indicative</feature>
 						</features>
 					</const>
 				</subconst>
 			</const>
-			<const label = "NP">
+			<const label="NP">
 				<features>
-					<feature name = "Sequence">Not in a Sequence</feature>
-					<feature name = "Semantic Role">Most Patient-like</feature>
-					<feature name = "Grammatical Relation">Object</feature>
+					<feature name="Sequence">Not in a Sequence</feature>
+					<feature name="Semantic Role">Most Patient-like</feature>
+					<feature name="Grammatical Relation">Object</feature>
 				</features>
 				<subconst>
-					<const label = "N" concept = "eye" sense = "A">
+					<const label="N" concept="eye" sense="A">
 						<features>
-							<feature name = "Participant Tracking">Routine</feature>
-							<feature name = "Person">Third</feature>
-							<feature name = "Noun List Index">3</feature>
+							<feature name="Participant Tracking">Routine</feature>
+							<feature name="Person">Third</feature>
+							<feature name="Noun List Index">3</feature>
 						</features>
 					</const>
 				</subconst>
 			</const>
-			<const label = "NP">
+			<const label="NP">
 				<features>
-					<feature name = "Sequence">Not in a Sequence</feature>
-					<feature name = "Semantic Role">Not Applicable</feature>
-					<feature name = "Grammatical Relation">No Grammatical Relation</feature>
+					<feature name="Sequence">Not in a Sequence</feature>
+					<feature name="Semantic Role">Not Applicable</feature>
+					<feature name="Grammatical Relation">No Grammatical Relation</feature>
 				</features>
 			</const>
-			<const label = "Adp" concept = "" sense = "A"></const>
-			<const label = "N" concept = "Janet" sense = "A">
+			<const label="Adp" concept="" sense="A"></const>
+			<const label="N" concept="Janet" sense="A">
 				<features>
-					<feature name = "Participant Tracking">Routine</feature>
-					<feature name = "Person">Third</feature>
-					<feature name = "Noun List Index">1</feature>
+					<feature name="Participant Tracking">Routine</feature>
+					<feature name="Person">Third</feature>
+					<feature name="Noun List Index">1</feature>
 				</features>
 			</const>
 		</subconst>
 	</const>
-	<const label = "CL">
+	<const label="CL">
 		<features>
-			<feature name = "Salience Band">Primary Storyline</feature>
-			<feature name = "Sequence">Not in a Sequence</feature>
+			<feature name="Salience Band">Primary Storyline</feature>
+			<feature name="Sequence">Not in a Sequence</feature>
 		</features>
 		<subconst>
-			<const label = "NP">
+			<const label="NP">
 				<features>
-					<feature name = "Sequence">Not in a Sequence</feature>
-					<feature name = "Semantic Role">Most Agent-like</feature>
-					<feature name = "Grammatical Relation">Subject</feature>
+					<feature name="Sequence">Not in a Sequence</feature>
+					<feature name="Semantic Role">Most Agent-like</feature>
+					<feature name="Grammatical Relation">Subject</feature>
 				</features>
 				<subconst>
-					<const label = "N" concept = "eye" sense = "A">
+					<const label="N" concept="eye" sense="A">
 						<features>
-							<feature name = "Participant Tracking">Routine</feature>
-							<feature name = "Person">Third</feature>
-							<feature name = "Noun List Index">3</feature>
+							<feature name="Participant Tracking">Routine</feature>
+							<feature name="Person">Third</feature>
+							<feature name="Noun List Index">3</feature>
 						</features>
 					</const>
 				</subconst>
 			</const>
-			<const label = "NP">
+			<const label="NP">
 				<features>
-					<feature name = "Sequence">Not in a Sequence</feature>
-					<feature name = "Semantic Role">Not Applicable</feature>
-					<feature name = "Grammatical Relation">No Grammatical Relation</feature>
+					<feature name="Sequence">Not in a Sequence</feature>
+					<feature name="Semantic Role">Not Applicable</feature>
+					<feature name="Grammatical Relation">No Grammatical Relation</feature>
 				</features>
 			</const>
-			<const label = "Adp" concept = "" sense = "A"></const>
-			<const label = "N" concept = "Janet" sense = "A">
+			<const label="Adp" concept="" sense="A"></const>
+			<const label="N" concept="Janet" sense="A">
 				<features>
-					<feature name = "Participant Tracking">Routine</feature>
-					<feature name = "Person">Third</feature>
-					<feature name = "Noun List Index">1</feature>
+					<feature name="Participant Tracking">Routine</feature>
+					<feature name="Person">Third</feature>
+					<feature name="Noun List Index">1</feature>
 				</features>
 			</const>
-			<const label = "AdvP">
+			<const label="AdvP">
 				<features>
-					<feature name = "Sequence">Not in a Sequence</feature>
+					<feature name="Sequence">Not in a Sequence</feature>
 				</features>
 				<subconst>
-					<const label = "Adv" concept = "also" sense = "C">
+					<const label="Adv" concept="also" sense="C">
 						<features>
-							<feature name = "Location">Pre-Verbal</feature>
+							<feature name="Location">Pre-Verbal</feature>
 						</features>
 					</const>
 				</subconst>
 			</const>
-			<const label = "VP">
+			<const label="VP">
 				<features>
-					<feature name = "Sequence">Not in a Sequence</feature>
+					<feature name="Sequence">Not in a Sequence</feature>
 				</features>
 				<subconst>
-					<const label = "V" concept = "be" sense = "D">
+					<const label="V" concept="be" sense="D">
 						<features>
-							<feature name = "Time">Past</feature>
-							<feature name = "Mood">Indicative</feature>
+							<feature name="Time">Past</feature>
+							<feature name="Mood">Indicative</feature>
 						</features>
 					</const>
 				</subconst>
 			</const>
-			<const label = "AdjP">
+			<const label="AdjP">
 				<features>
-					<feature name = "Sequence">Not in a Sequence</feature>
-					<feature name = "Usage">Predicative</feature>
+					<feature name="Sequence">Not in a Sequence</feature>
+					<feature name="Usage">Predicative</feature>
 				</features>
 				<subconst>
-					<const label = "Adj" concept = "red" sense = "A">
+					<const label="Adj" concept="red" sense="A">
 						<features>
-							<feature name = "Type">Color</feature>
+							<feature name="Type">Color</feature>
 						</features>
 					</const>
 				</subconst>
 			</const>
-			<const label = "Par" concept = " ! " sense = "A"></const>	
+			<const label="Par" concept=" ! " sense="A"></const>
 		</subconst>
 	</const>
 </sentence>
