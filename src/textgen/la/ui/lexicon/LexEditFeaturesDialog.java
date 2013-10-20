@@ -34,6 +34,7 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.SoftBevelBorder;
 import javax.swing.border.EtchedBorder;
 import javax.swing.JLabel;
+import javax.swing.DefaultComboBoxModel;
 
 public class LexEditFeaturesDialog extends JDialog {
 
@@ -140,16 +141,18 @@ public class LexEditFeaturesDialog extends JDialog {
 		panel_1.add(lblFeature, BorderLayout.WEST);
 		
 		JComboBox comboBox_1 = new JComboBox();
+		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"Gender", "Countable"}));
 		panel_1.add(comboBox_1, BorderLayout.CENTER);
 		panel.setLayout(new BorderLayout(0, 0));
 
 		table = new JTable();
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
-				{"Hello"},
+				{"Female"},
+				{"Male"}
 			},
 			new String[] {
-				"Name"
+				"Values"
 			}
 		));
 		panel.add(table, BorderLayout.CENTER);
