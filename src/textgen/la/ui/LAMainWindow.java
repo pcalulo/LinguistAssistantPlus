@@ -23,6 +23,7 @@ import textgen.la.models.Sentence;
 import textgen.la.models.directory.LinguistText;
 import textgen.la.models.directory.ManifestFileFilter;
 import textgen.la.models.directory.ManifestReader;
+import textgen.la.ui.displaymodels.LinguistTextTreeModel;
 
 /**
  * This class extends BaseMainWindow, and provides additional business logic
@@ -162,6 +163,10 @@ public class LAMainWindow extends BaseMainWindow {
 			try {
 				text = ManifestReader.read(selectedFile);
 				text.printContents();
+				
+				LinguistTextNavigatorDialog dialog = new LinguistTextNavigatorDialog(this.getWindowForm());
+				dialog.setLinguistText(text);
+				dialog.setVisible(true);
 			} catch (IOException ex) {
 				ex.printStackTrace();
 			}
