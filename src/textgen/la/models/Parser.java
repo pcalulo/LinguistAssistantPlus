@@ -50,7 +50,7 @@ public class Parser {
 	}
 
 	public Parser() {
-		this.sentence = readXMLFile("InfectedEye", "1");
+		this.sentence = readXMLFile("InfectedEye1", "1");
 		System.out.println(sentence.toXMLString());
 		writeToFile("InfectedEye", "1", sentence);
 	}
