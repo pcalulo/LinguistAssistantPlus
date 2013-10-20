@@ -6,6 +6,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.logging.Logger;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -29,6 +30,8 @@ public class LAMainWindow extends BaseMainWindow {
 
 	private Sentence sentence;
 	private Constituent selectedConstituent;
+	
+	private Logger logger = Logger.getLogger(this.getClass().getSimpleName());
 
 	public static LAMainWindow getInstance() {
 		return instance;
@@ -127,5 +130,20 @@ public class LAMainWindow extends BaseMainWindow {
 	public void setActiveConstituent(Constituent constituent) {
 		getLabelField().setText(constituent.getLabel());
 		getConceptField().setText(constituent.getConcept());
+	}
+
+	@Override
+	protected void onNewTextClick() {
+		logger.info("onNewTextClick!");
+	}
+
+	@Override
+	protected void onOpenTextClick() {
+		logger.info("onOpenTextClick!");
+	}
+
+	@Override
+	protected void onAboutClick() {
+		logger.info("onAboutClick!");
 	}
 }

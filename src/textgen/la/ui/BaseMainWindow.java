@@ -36,6 +36,11 @@ import javax.swing.JSeparator;
 import javax.swing.JToolBar;
 import java.awt.Component;
 import javax.swing.Box;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import javax.swing.KeyStroke;
+import java.awt.event.KeyEvent;
+import java.awt.event.InputEvent;
 
 /**
  * BaseMainWindow acts as a container for the UI initialization code generated
@@ -46,7 +51,7 @@ import javax.swing.Box;
  * @author Lawrence Patrick Calulo
  * 
  */
-public class BaseMainWindow {
+public abstract class BaseMainWindow {
 
 	private JFrame windowForm;
 	private Parser parser;
@@ -63,12 +68,13 @@ public class BaseMainWindow {
 	private JMenuItem mntmNew;
 	private JMenuItem mntmOpen;
 	private JSeparator separator;
-	private JMenuItem mntmClose;
+	private JMenuItem mntmExit;
 	private JMenuItem mntmAbout;
 	private JToolBar toolBar;
 	private JButton btnSelectVerse;
 	private Component horizontalGlue;
 	private JLabel lblBookTitle;
+	private JMenuItem mntmCloseText;
 
 	/**
 	 * Create the application.
@@ -220,16 +226,32 @@ public class BaseMainWindow {
 		menuBar.add(mnFile);
 		
 		mntmNew = new JMenuItem("New Text");
+		mntmNew.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N, InputEvent.CTRL_MASK));
+		mntmNew.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				onNewTextClick();
+			}
+		});
 		mnFile.add(mntmNew);
 		
 		mntmOpen = new JMenuItem("Open Text");
+		mntmOpen.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_O, InputEvent.CTRL_MASK));
+		mntmOpen.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				onOpenTextClick();
+			}
+		});
 		mnFile.add(mntmOpen);
+		
+		mntmCloseText = new JMenuItem("Close Text");
+		mntmCloseText.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_W, InputEvent.CTRL_MASK));
+		mnFile.add(mntmCloseText);
 		
 		separator = new JSeparator();
 		mnFile.add(separator);
 		
-		mntmClose = new JMenuItem("Close");
-		mnFile.add(mntmClose);
+		mntmExit = new JMenuItem("Exit");
+		mnFile.add(mntmExit);
 		
 		mnEdit = new JMenu("Edit");
 		menuBar.add(mnEdit);
@@ -238,6 +260,11 @@ public class BaseMainWindow {
 		menuBar.add(mnHelp);
 		
 		mntmAbout = new JMenuItem("About");
+		mntmAbout.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				onAboutClick();
+			}
+		});
 		mnHelp.add(mntmAbout);
 	}
 	
@@ -265,4 +292,11 @@ public class BaseMainWindow {
 	public JButton getOkButton() {
 		return okButton;
 	}
+	
+	// Event handlers!
+	protected abstract void onNewTextClick();
+	
+	protected abstract void onOpenTextClick();
+	
+	protected abstract void onAboutClick();
 }
