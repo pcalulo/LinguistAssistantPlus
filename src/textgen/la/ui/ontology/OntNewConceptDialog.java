@@ -1,4 +1,4 @@
-package textgen.la.ui.lexicon;
+package textgen.la.ui.ontology;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
@@ -39,7 +39,7 @@ import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import java.awt.Font;
 
-public class LexNewFeatureDialog extends JDialog {
+public class OntNewConceptDialog extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
 
@@ -53,7 +53,7 @@ public class LexNewFeatureDialog extends JDialog {
 	 */
 	public static void main(String[] args) {
 		try {
-			LexEditFormsDialog dialog = new LexEditFormsDialog();
+			OntNewConceptDialog dialog = new OntNewConceptDialog();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
 		} catch (Exception e) {
@@ -64,18 +64,17 @@ public class LexNewFeatureDialog extends JDialog {
 	/**
 	 * Create the dialog.
 	 */
-	public LexNewFeatureDialog() {
+	public OntNewConceptDialog() {
 		setModalExclusionType(ModalExclusionType.APPLICATION_EXCLUDE);
 		setModalityType(ModalityType.APPLICATION_MODAL);
 		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-		
-		setTitle("New Feature");
+		setTitle("New Source Concept");
 		setBounds(100, 100, 381, 114);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		
-		JLabel lblEnterNameOf = new JLabel("Enter name of new feature:");
+		JLabel lblEnterNameOf = new JLabel("Enter new concept:");
 		lblEnterNameOf.setHorizontalAlignment(SwingConstants.LEFT);
 		
 		textField = new JTextField();
@@ -86,9 +85,9 @@ public class LexNewFeatureDialog extends JDialog {
 		gl_contentPanel.setHorizontalGroup(
 			gl_contentPanel.createParallelGroup(Alignment.TRAILING)
 				.addGroup(gl_contentPanel.createSequentialGroup()
-					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-					.addComponent(lblEnterNameOf, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
-					.addComponent(textField, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(15, Short.MAX_VALUE)
+					.addComponent(lblEnterNameOf, GroupLayout.PREFERRED_SIZE, 110, GroupLayout.PREFERRED_SIZE)
+					.addComponent(textField, GroupLayout.PREFERRED_SIZE, 220, GroupLayout.PREFERRED_SIZE)
 					.addContainerGap())
 		);
 		gl_contentPanel.setVerticalGroup(
@@ -98,7 +97,7 @@ public class LexNewFeatureDialog extends JDialog {
 					.addGroup(gl_contentPanel.createParallelGroup(Alignment.LEADING)
 						.addComponent(lblEnterNameOf, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
 						.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addContainerGap(26, Short.MAX_VALUE))
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 		);
 		contentPanel.setLayout(gl_contentPanel);
 		{
@@ -118,18 +117,12 @@ public class LexNewFeatureDialog extends JDialog {
 			}
 			{
 				JButton cancelButton = new JButton("Cancel");
-				cancelButton.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						dispose();
-					}
-				});
 				cancelButton.setActionCommand("Cancel");
 				buttonPane.add(cancelButton);
 			}
 		}
 
 		customInitialize();
-		setVisible(true);
 	}
 
 	/**
@@ -144,7 +137,7 @@ public class LexNewFeatureDialog extends JDialog {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				LexNewFeatureDialog.this.setVisible(false);
+				OntNewConceptDialog.this.setVisible(false);
 			}
 		}, escapeKeystroke, JComponent.WHEN_IN_FOCUSED_WINDOW);
 	}
@@ -161,10 +154,9 @@ public class LexNewFeatureDialog extends JDialog {
 
 
 	protected void onOkButtonClick() {
-		
+
 		logger.info("Closing dialog via OK");
 		setVisible(false);
-		new LexEditFeaturesDialog();
 	}
 
 	public Constituent getConstituent() {

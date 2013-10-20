@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
@@ -49,12 +50,22 @@ public class FeatureList {
 		features.remove(index);
 	}
 
-	public void setFeatureNode(Node m, int parentDepth) {
+	public void setFeatureNode(Element m, int parentDepth) {
+		//NodeList children = m.getChildNodes();
+		//Node a;
 		NodeList children = m.getChildNodes();
-		Node a;
-
+		
 		depthLevel = parentDepth + 1;
-
+		
+		for (int i = 0; i < children.getLength(); i++) {
+			Node a = children.item(i);
+			
+			if (a.getNodeName().equals("feature")) {
+				features.add(new Feature((Element)a, depthLevel));
+				length++;
+			}
+		}
+		/*
 		for (int i = 0; i < children.getLength(); i++) {
 			a = children.item(i);
 
@@ -62,7 +73,7 @@ public class FeatureList {
 				features.add(new Feature(a, depthLevel));
 				length++;
 			}
-		}
+		}*/
 	}
 
 	public String toXMLString() {

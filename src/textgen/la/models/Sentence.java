@@ -26,7 +26,7 @@ public class Sentence {
 			node = children.item(i);
 
 			if (node.getNodeName().equals("const"))
-				clauses.add(new Constituent(node, depthLevel));
+				clauses.add(new Constituent((Element) node, depthLevel));
 		}
 	}
 

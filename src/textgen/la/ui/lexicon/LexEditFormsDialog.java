@@ -66,6 +66,7 @@ public class LexEditFormsDialog extends JDialog {
 		setModalExclusionType(ModalExclusionType.APPLICATION_EXCLUDE);
 		setModalityType(ModalityType.APPLICATION_MODAL);
 		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+		
 		setTitle("Edit a Feature");
 		setBounds(100, 100, 371, 306);
 		getContentPane().setLayout(new BorderLayout());
@@ -176,12 +177,18 @@ public class LexEditFormsDialog extends JDialog {
 			}
 			{
 				JButton cancelButton = new JButton("Cancel");
+				cancelButton.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						dispose();
+					}
+				});
 				cancelButton.setActionCommand("Cancel");
 				buttonPane.add(cancelButton);
 			}
 		}
 
 		customInitialize();
+		setVisible(true);
 	}
 
 	/**

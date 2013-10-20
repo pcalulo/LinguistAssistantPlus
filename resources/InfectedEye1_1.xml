@@ -1,0 +1,107 @@
+<sentence>
+	<const label = "CL">
+		<features>
+			<feature name = "Type"> Independent </feature>
+			<feature name = "Illocutionary Force"> Declarative</feature>
+			<feature name = "Topic NP"> Most Agent-like</feature>
+			<feature name = "Discource Genre"> Climatic Narrative Story</feature>
+			<feature name = "Salience Band"> Primary Storyline </feature>
+			<feature name = "Sequence"> Not in a Sequence </feature>
+			<feature name = "Location in Paragraph">Discource Title</feature>	
+			<feature name = "Implicit Information">Not Applicable</feature>	
+			<feature name = "Alternative Analysis">Not Appllicable</feature>
+			<feature name = "Adverbial Clause Position">Unspecified</feature>
+			<feature name = "Voice">Active</feature>
+			<feature name = "Stative Clause Type">Attributive</feature>
+			<feature name = "Adverbial Clause Type">Not an Adverbial Clause</feature>
+		</features>
+		<subconst>
+			<const label = "NP">
+				<features>
+					<feature name = "Sequence"> Not in a Sequence </feature>
+					<feature name = "Semantic Role"> Most Agent-like </feature>
+					<feature name = "Implicit Information"> Not Applicable</feature>
+					<feature name = "Thing-Thing Relationship"> Unspecified</feature>
+					<feature name = "Relativized">No</feature>
+					<feature name = "Grammatical Relation"> Subject </feature>
+				</features>
+				<subconst>
+					<const label = "N" concept = "eye" sense = "A">
+						<features>
+							<feature name = "Semantic Complexity Level">Molecule</feature>
+							<feature name = "Number">Plural</feature>
+							<feature name = "Participant Tracking">First Mention</feature>
+							<feature name = "Person">Third</feature>
+							<feature name = "Polarity">Affirmative</feature>
+							<feature name = "Proximity">Not Applicable</feature>
+							<feature name = "Noun List Index">1</feature>
+							<feature name = "Surface Realization">Not Applicable</feature>
+							<feature name = "Participant Status">Not Applicable</feature>
+							<feature name = "Gender">Neuter</feature>
+							<feature name = "Takes Articles">Yes</feature>
+							<feature name = "Countable">Yes</feature>
+							<feature name = "Relative Clause Type">Standard</feature>
+						</features>
+					</const>
+				</subconst>
+			</const>
+			<const label = "NP">
+				<features>
+					<feature name = "Sequence">Not in a Sequence</feature>
+					<feature name = "Semantic Role">Not Applicable</feature>
+					<feature name = "Implicit Information"> Not Applicable</feature>
+					<feature name = "Thing-Thing Relationship"> Unspecified</feature>
+					<feature name = "Relativized">No</feature>
+					<feature name = "Grammatical Relation"> No Grammatical Relation</feature>
+				</features>
+			</const>
+			<const label = "Adp" concept = "Bodypart" sense = "A"></const>
+				<features>
+					<feature name = "Semantic Complexity Level">Primitive</feature>
+				</features>
+			<const label = "N" concept = "Melissa" sense = "A">
+				<features>
+					<feature name = "Semantic Complexity Level">Inexplicable</feature>
+					<feature name = "Number">Singular</feature>
+					<feature name = "Participant Tracking">First Mention</feature>
+					<feature name = "Polarity">Affirmative</feature>
+					<feature name = "Proximity">Not Applicable</feature>
+					<feature name = "Person">Third</feature>
+					<feature name = "Noun List Index">1</feature>
+					<feature name = "Surface Realization">Not Applicable</feature>
+					<feature name = "Participant Status">Not Applicable</feature>
+					<feature name = "Gender">Feminine</feature>
+					<feature name = "Takes Articles">No</feature>
+					<feature name = "Countable">Yes</feature>
+					<feature name = "Relative Clause Type">Standard</feature>
+				</features>
+			</const>
+			<const label = "VP">
+				<features>
+					<feature name = "Sequence"> Not in a Sequence</feature>
+				</features>
+				<subconst>
+					<const label = "V" concept = "be" sense = "D">
+						<features>
+							<feature name = "Time">Present</feature>
+							<feature name = "Mood">Indicative</feature>
+						</features>
+					</const>
+				</subconst>
+			</const>
+			<const label = "AdjP">
+				<features>
+					<feature name = "Sequence">Not in a Sequence</feature>
+					<feature name = "Usage">Predicative</feature>
+				</features>
+				<subconst>
+					<const label = "Adj" concept = "sore" sense = "A">
+						<features>
+							<feature name = "Type">Descriptive</feature>
+						</features>
+					</const>	
+				</subconst>
+			</const>
+		</subconst>
+	</const>
+</sentence>

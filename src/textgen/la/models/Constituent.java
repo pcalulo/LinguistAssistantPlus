@@ -2,6 +2,8 @@ package textgen.la.models;
 
 import javax.swing.JPanel;
 
+import org.w3c.dom.Attr;
+import org.w3c.dom.Element;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -54,14 +56,14 @@ public class Constituent {
 	}
 	
 	// XML STUFF
-	public Constituent(Node a, int parentDepth) {
-		NamedNodeMap attr = a.getAttributes();
-		NodeList children = a.getChildNodes();
+	public Constituent(Element a, int parentDepth) {
+		//NamedNodeMap attr = a.getAttributes();
+		//NodeList children = a.getChildNodes();
 
 		featureList = new FeatureList();
-		depthLevel = parentDepth;
+		depthLevel = parentDepth+1;
 		constList = new ConstitList();
-
+		Attr attr;
 		/*
 		 * if (attr.getNamedItem("label").getNodeValue() != null) label =
 		 * attr.getNamedItem("label").getNodeValue(); if
@@ -70,20 +72,29 @@ public class Constituent {
 		 * (attr.getNamedItem("translation").getNodeValue() != null) translation
 		 * = attr.getNamedItem("translation").getNodeValue();
 		 */
-
+		if(a.hasAttributes())
+		{
+			attr = (Attr) a.getAttributes().getNamedItem("label");
+			if(attr != null)
+			{
+				label = attr.getValue();
+			}
+		}
+		
+		NodeList children= a.getChildNodes();
 		for (int i = 0; i < children.getLength(); i++) {
 			Node node = children.item(i);
 
-			if (node.getNodeName().equals("label"))
-				label = node.getChildNodes().item(0).getNodeValue().trim();
+			/*if (node.getNodeName().equals("label"))
+				label = node.getChildNodes().item(0).getNodeValue().trim();*/
 			if (node.getNodeName().equals("concept"))
 				concept = node.getChildNodes().item(0).getNodeValue().trim();
 			if (node.getNodeName().equals("translation"))
 				translation = node.getChildNodes().item(0).getNodeValue().trim();
 			if (node.getNodeName().equals("features"))
-				featureList.setFeatureNode(node, depthLevel);
+				featureList.setFeatureNode((Element)node, depthLevel);
 			if (node.getNodeName().equals("subconst"))
-				constList.setConstitNode(node, depthLevel);
+				constList.setConstitNode((Element)node, depthLevel);
 		}
 	}
 	
@@ -94,18 +105,20 @@ public class Constituent {
 			depth += "\t";
 		}
 
-		String toPrint = depth + "<const>\n";
-
-		toPrint += depth + "\t<label>" + label + "</label>\n";
-
+		String toPrint = depth + "<const ";
+		
+		toPrint +=  "label = \""+ label + "\">\n";
+		
 		if (concept != null)
 			toPrint += depth + "\t<concept>" + concept + "</concept>\n";
+		
 		if (translation != null)
 			toPrint += depth + "\t<translation>" + translation
 					+ "</translation>\n";
-
+		
 		if (featureList.getLength() != 0)
 			toPrint += featureList.toXMLString() + "\n";
+		
 		if (constList.getLength() != 0)
 			toPrint += constList.toXMLString() + "\n";
 

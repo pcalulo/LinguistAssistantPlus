@@ -62,7 +62,7 @@ public class Parser {
 			e.printStackTrace();
 		}
 	}
-
+	
 	public Sentence getSentence() {
 		return sentence;
 	}
