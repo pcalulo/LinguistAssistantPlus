@@ -173,6 +173,7 @@ public class ManifestReader {
 	 * @param nodes
 	 *            The node to print out
 	 */
+	@SuppressWarnings("unused")
 	private static void printNodes(NodeList nodes) {
 		printNodes(nodes, 0);
 	}

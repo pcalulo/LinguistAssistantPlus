@@ -1,6 +1,5 @@
 package textgen.la.models.directory;
 
-import java.io.PrintStream;
 import java.util.List;
 
 public class LinguistText {
