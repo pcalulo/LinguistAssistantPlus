@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<text name="Infected Eye">
+<text name="Infected Eye Built-In Sample">
 	<book name="Book 1" id="1">
 		<verse id="1" filename="InfectedEye1_1.xml"></verse>
 		<verse id="2" filename="InfectedEye1_2.xml"></verse>
