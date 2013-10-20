@@ -157,6 +157,11 @@ public class FeaturesDialog extends JDialog {
 			}
 			{
 				JButton cancelButton = new JButton("Cancel");
+				cancelButton.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						onCancel();
+					}
+				});
 				cancelButton.setActionCommand("Cancel");
 				buttonPane.add(cancelButton);
 			}
@@ -182,7 +187,7 @@ public class FeaturesDialog extends JDialog {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				FeaturesDialog.this.setVisible(false);
+				onCancel();
 			}
 		}, escapeKeystroke, JComponent.WHEN_IN_FOCUSED_WINDOW);
 	}
@@ -236,6 +241,10 @@ public class FeaturesDialog extends JDialog {
 		constituent.getFeatureList().setFeatures(ftm.getFeatures());
 
 		logger.info("Closing dialog via OK");
+		setVisible(false);
+	}
+	
+	protected void onCancel() {
 		setVisible(false);
 	}
 
