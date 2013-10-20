@@ -29,6 +29,13 @@ import javax.swing.JTextField;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JMenuBar;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+import javax.swing.JSeparator;
+import javax.swing.JToolBar;
+import java.awt.Component;
+import javax.swing.Box;
 
 /**
  * BaseMainWindow acts as a container for the UI initialization code generated
@@ -49,6 +56,19 @@ public class BaseMainWindow {
 	private JButton okButton;
 	private FeatureList features;
 	private Constituent cons;
+	private JMenuBar menuBar;
+	private JMenu mnFile;
+	private JMenu mnEdit;
+	private JMenu mnHelp;
+	private JMenuItem mntmNew;
+	private JMenuItem mntmOpen;
+	private JSeparator separator;
+	private JMenuItem mntmClose;
+	private JMenuItem mntmAbout;
+	private JToolBar toolBar;
+	private JButton btnSelectVerse;
+	private Component horizontalGlue;
+	private JLabel lblBookTitle;
 
 	/**
 	 * Create the application.
@@ -180,6 +200,45 @@ public class BaseMainWindow {
 								.addContainerGap(14, Short.MAX_VALUE)));
 		panel.setLayout(gl_panel);
 		infoPanel.setLayout(gl_infoPanel);
+		
+		toolBar = new JToolBar();
+		windowForm.getContentPane().add(toolBar, BorderLayout.NORTH);
+		
+		btnSelectVerse = new JButton("Select Verse");
+		toolBar.add(btnSelectVerse);
+		
+		horizontalGlue = Box.createHorizontalGlue();
+		toolBar.add(horizontalGlue);
+		
+		lblBookTitle = new JLabel("Book/verse goes here");
+		toolBar.add(lblBookTitle);
+		
+		menuBar = new JMenuBar();
+		windowForm.setJMenuBar(menuBar);
+		
+		mnFile = new JMenu("File");
+		menuBar.add(mnFile);
+		
+		mntmNew = new JMenuItem("New");
+		mnFile.add(mntmNew);
+		
+		mntmOpen = new JMenuItem("Open");
+		mnFile.add(mntmOpen);
+		
+		separator = new JSeparator();
+		mnFile.add(separator);
+		
+		mntmClose = new JMenuItem("Close");
+		mnFile.add(mntmClose);
+		
+		mnEdit = new JMenu("Edit");
+		menuBar.add(mnEdit);
+		
+		mnHelp = new JMenu("Help");
+		menuBar.add(mnHelp);
+		
+		mntmAbout = new JMenuItem("About");
+		mnHelp.add(mntmAbout);
 	}
 	
 	/**
