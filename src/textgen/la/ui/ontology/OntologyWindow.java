@@ -8,6 +8,7 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 import java.util.logging.Logger;
 
 import javax.swing.GroupLayout;
@@ -23,11 +24,17 @@ import javax.swing.KeyStroke;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
+import javax.swing.table.TableModel;
 
 import textgen.la.models.Constituent;
+import textgen.la.models.ontology.Noun;
+import textgen.la.models.ontology.OntologyParser;
+import textgen.la.models.ontology.POS;
 import textgen.la.ui.displaymodels.FeatureTableModel;
+import textgen.la.ui.displaymodels.OntologyTableModel;
 
 import java.awt.Dialog.ModalityType;
 import java.awt.Dialog.ModalExclusionType;
@@ -43,19 +50,25 @@ import javax.swing.JScrollBar;
 public class OntologyWindow extends JFrame {
 
 	private final JPanel contentPanel = new JPanel();
-	private JTable table;
+	private JTable ontologyTable;
 	private JPanel panel;
 
+	
 	private Logger logger = Logger.getLogger(this.getClass().getSimpleName());
 
-	private Constituent constituent;
+	private OntologyParser parser;
 	private JTable table_1;
+	
+	TableModel nounModel, verbModel, adjModel,
+			advModel, adpModel, conjModel, partModel, relModel;
 
+	
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
 		try {
+			
 			OntologyWindow dialog = new OntologyWindow();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
@@ -68,11 +81,15 @@ public class OntologyWindow extends JFrame {
 	 * Create the dialog.
 	 */
 	public OntologyWindow() {
+		
+		parser = new OntologyParser();
+		fillUpTables();
+		
 		setResizable(false);
 		setModalExclusionType(ModalExclusionType.APPLICATION_EXCLUDE);
 		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		setTitle("Lexicon");
-		setBounds(100, 100, 666, 477);
+		setBounds(100, 100, 740, 477);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
@@ -125,8 +142,14 @@ public class OntologyWindow extends JFrame {
 		
 		JLabel lblFeature = new JLabel("POS:     ");
 		
-		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"Noun", "Verb", "Adjective", "Adverb", "Adposition", "Conjunction", "Particle"}));
+		final JComboBox posBox = new JComboBox();
+		
+		posBox.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				changeModel(posBox.getSelectedIndex());
+			}
+		});
+		posBox.setModel(new DefaultComboBoxModel(new String[] {"Noun", "Verb", "Adjective", "Adverb", "Conjunction", "Particle", "Relation"}));
 		
 				JButton btnAddStem = new JButton("Add New Stem");
 				btnAddStem.addActionListener(new ActionListener() {
@@ -140,7 +163,7 @@ public class OntologyWindow extends JFrame {
 				.addGroup(gl_panel_1.createSequentialGroup()
 					.addComponent(lblFeature)
 					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(comboBox_1, GroupLayout.PREFERRED_SIZE, 191, GroupLayout.PREFERRED_SIZE)
+					.addComponent(posBox, GroupLayout.PREFERRED_SIZE, 191, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(btnAddStem, GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
 					.addContainerGap())
@@ -151,27 +174,28 @@ public class OntologyWindow extends JFrame {
 					.addGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
 						.addComponent(lblFeature, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
 						.addGroup(gl_panel_1.createParallelGroup(Alignment.BASELINE)
-							.addComponent(comboBox_1, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
+							.addComponent(posBox, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
 							.addComponent(btnAddStem)))
 					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 		);
 		panel_1.setLayout(gl_panel_1);
 		panel.setLayout(new BorderLayout(0, 0));
 
-		table = new JTable();
-		table.setFillsViewportHeight(true);
-		table.setModel(new DefaultTableModel(
+		ontologyTable = new JTable();
+		ontologyTable.setFillsViewportHeight(true);
+		ontologyTable.setModel(new DefaultTableModel(
 			new Object[][] {
-				{"Hello", null, null},
+				{null, null},
 			},
 			new String[] {
-				"Stem", "Definition", "Mapping"
+				"Stem", "Definition"
 			}
 		));
-		panel.add(new JScrollPane(table), BorderLayout.CENTER);
+		panel.add(new JScrollPane(ontologyTable), BorderLayout.CENTER);
 		contentPanel.setLayout(gl_contentPanel);
 
 		customInitialize();
+		
 	}
 
 	/**
@@ -196,21 +220,21 @@ public class OntologyWindow extends JFrame {
 		}, escapeKeystroke, JComponent.WHEN_IN_FOCUSED_WINDOW);
 	}
 
-	public void setConstituent(Constituent constituent) {
-		this.constituent = constituent;
-
-		FeatureTableModel ftm = new FeatureTableModel(constituent);
-		getFeaturesTable().setModel(ftm);
-
-		if (constituent.getConcept() != null) {
-			setTitle(constituent.getLabel() + " : " + constituent.getConcept());
-		} else {
-			setTitle(constituent.getLabel());
-		}
-	}
+//	public void setConstituent(Constituent constituent) {
+//		this.constituent = constituent;
+//
+//		FeatureTableModel ftm = new FeatureTableModel(constituent);
+//		getFeaturesTable().setModel(ftm);
+//
+//		if (constituent.getConcept() != null) {
+//			setTitle(constituent.getLabel() + " : " + constituent.getConcept());
+//		} else {
+//			setTitle(constituent.getLabel());
+//		}
+//	}
 
 	public JTable getFeaturesTable() {
-		return table;
+		return ontologyTable;
 	}
 
 	public JPanel getFeaturesPanel() {
@@ -262,8 +286,86 @@ public class OntologyWindow extends JFrame {
 ////		}
 //		new LexEditFormsDialog();
 //	}
+	
+	public void createNounTableModel()
+	{
+		ArrayList<POS> nounList = (ArrayList<POS>) parser.getOntology().getNounList();
+		nounModel = new OntologyTableModel(nounList);
+	}
+	
+	public void createVerbTableModel()
+	{
+		ArrayList<POS> verbList = (ArrayList<POS>) parser.getOntology().getVerbList();
+		verbModel = new OntologyTableModel(verbList);
+	}
+	
+	public void createAdjectiveTableModel()
+	{
+		ArrayList<POS> adjList = (ArrayList<POS>) parser.getOntology().getAdjList();
+		adjModel = new OntologyTableModel(adjList);
+	}
+	
+	public void createAdverbTableModel()
+	{
+		ArrayList<POS> advList = (ArrayList<POS>) parser.getOntology().getAdvList();
+		advModel = new OntologyTableModel(advList);
+	}
+	
+	public void createConjunctionTableModel()
+	{
+		ArrayList<POS> conjList = (ArrayList<POS>) parser.getOntology().getConjList();
+		conjModel = new OntologyTableModel(conjList);
+	}
+	
+	public void createParticleTableModel()
+	{
+		ArrayList<POS> pList = (ArrayList<POS>) parser.getOntology().getPList();
+		partModel = new OntologyTableModel(pList);
+	}
+	
+	public void createRelationTableModel()
+	{
+		ArrayList<POS> rList = (ArrayList<POS>) parser.getOntology().getRList();
+		relModel = new OntologyTableModel(rList);
+	}
 
-	public Constituent getConstituent() {
-		return constituent;
+	protected void fillUpTables()
+	{
+		createNounTableModel();
+		createVerbTableModel();
+		createAdjectiveTableModel();
+		createAdverbTableModel();
+		createConjunctionTableModel();
+		createParticleTableModel();
+		createRelationTableModel();
+	}
+	
+	public void changeModel(int index)
+	{
+		
+		switch(index)
+		{
+			case 0:
+				ontologyTable.setModel(nounModel);
+				break;
+			case 1:
+				ontologyTable.setModel(verbModel);
+				break;
+			case 2:
+				ontologyTable.setModel(adjModel);
+				break;
+			case 3:
+				ontologyTable.setModel(advModel);
+				break;
+			case 4:
+				ontologyTable.setModel(conjModel);
+				break;
+			case 5:
+				ontologyTable.setModel(partModel);
+				break;
+			case 6:
+				ontologyTable.setModel(relModel);
+				break;
+		}
 	}
 }
