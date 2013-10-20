@@ -2,12 +2,13 @@ package textgen.la.models;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 public class FeatureList {
-	private ArrayList<Feature> features = new ArrayList<Feature>();
+	private List<Feature> features = new ArrayList<Feature>();
 	private int length, depthLevel;
 
 	public FeatureList(ArrayList<Feature> features){
@@ -85,7 +86,11 @@ public class FeatureList {
 		return toPrint;
 	}
 
-	public ArrayList<Feature> getFeatures() {
+	public List<Feature> getFeatures() {
 		return features;
+	}
+	
+	public void setFeatures(List<Feature> features) {
+		this.features = features;
 	}
 }

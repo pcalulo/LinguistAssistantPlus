@@ -82,7 +82,7 @@ public class Box extends JPanel {
 					// Right click to show features
 					FeaturesDialog dialog = new FeaturesDialog();
 					dialog.setConstituent(constituent);
-					dialog.show();
+					dialog.setVisible(true);
 				}
 			}
 		});

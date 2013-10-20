@@ -23,8 +23,7 @@ public class FeatureTableModel implements TableModel {
 
 	public FeatureTableModel(Constituent constituent) {
 		mFeatures = constituent.getFeatureList().getFeatures();
-
-		System.out.println("Initialized FTM");
+		logger.info("Initialized FTM");
 	}
 
 	public Class<?> getColumnClass(int columnIndex) {
@@ -139,5 +138,9 @@ public class FeatureTableModel implements TableModel {
 		for (TableModelListener listener : mListeners) {
 			listener.tableChanged(event);
 		}
+	}
+	
+	public List<Feature> getFeatures() {
+		return mFeatures;
 	}
 }
