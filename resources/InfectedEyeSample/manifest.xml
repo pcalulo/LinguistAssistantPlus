@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <text name="Infected Eye Built-In Sample">
-	<book name="Book 1" id="1">
+	<chapter name="Example Chapter" id="1">
 		<verse id="1" filename="InfectedEye1_1.xml"></verse>
 		<verse id="2" filename="InfectedEye1_2.xml"></verse>
 		<verse id="3" filename="InfectedEye1_3.xml"></verse>
 		<verse id="4" filename="InfectedEye1_4.xml"></verse>
 		<verse id="5" filename="InfectedEye1_5.xml"></verse>
 		<verse id="6" filename="InfectedEye1_6.xml"></verse>
-	</book>
+	</chapter>
 </text>

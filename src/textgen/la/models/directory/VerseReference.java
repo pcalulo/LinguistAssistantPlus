@@ -23,4 +23,9 @@ public class VerseReference {
 	public void printContents() {
 		System.out.println("VerseReference: " + getFileName() + " | ID: " + getId());
 	}
+	
+	@Override
+	public String toString() {
+		return "Verse " + getId();
+	}
 }

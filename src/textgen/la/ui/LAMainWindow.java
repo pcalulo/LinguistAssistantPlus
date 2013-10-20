@@ -6,18 +6,23 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 import java.util.logging.Logger;
 
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
 import textgen.la.models.Constituent;
 import textgen.la.models.Parser;
 import textgen.la.models.Sentence;
+import textgen.la.models.directory.LinguistText;
 import textgen.la.models.directory.ManifestFileFilter;
+import textgen.la.models.directory.ManifestReader;
 
 /**
  * This class extends BaseMainWindow, and provides additional business logic
@@ -32,7 +37,7 @@ public class LAMainWindow extends BaseMainWindow {
 
 	private Sentence sentence;
 	private Constituent selectedConstituent;
-	
+
 	private Logger logger = Logger.getLogger(this.getClass().getSimpleName());
 
 	public static LAMainWindow getInstance() {
@@ -141,11 +146,26 @@ public class LAMainWindow extends BaseMainWindow {
 
 	@Override
 	protected void onOpenTextClick() {
+		int result;
+		File selectedFile;
+		LinguistText text = null;
+
 		logger.info("onOpenTextClick!");
-		
+
 		JFileChooser fileChooser = new JFileChooser();
 		fileChooser.setFileFilter(new ManifestFileFilter());
-		fileChooser.showOpenDialog(this.getWindowForm());
+		fileChooser.setAcceptAllFileFilterUsed(false);
+		result = fileChooser.showOpenDialog(this.getWindowForm());
+
+		if (result == JFileChooser.APPROVE_OPTION) {
+			selectedFile = fileChooser.getSelectedFile();
+			try {
+				text = ManifestReader.read(selectedFile);
+				text.printContents();
+			} catch (IOException ex) {
+				ex.printStackTrace();
+			}
+		}
 	}
 
 	@Override

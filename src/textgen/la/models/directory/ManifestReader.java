@@ -25,7 +25,7 @@ import org.xml.sax.SAXException;
  * 
  */
 public class ManifestReader {
-	
+
 	/**
 	 * The file name that all manifest files *MUST* have.
 	 */
@@ -56,31 +56,31 @@ public class ManifestReader {
 
 		lingText.setName(attrs.getNamedItem("name").getNodeValue());
 
-		// Get all books. This also handles getting the verses.
-		List<Book> books = readBooks(textNode);
-		lingText.setBooks(books);
+		// Get all chapters. This also handles getting the verses.
+		List<Chapter> chapters = readChapters(textNode);
+		lingText.setChapters(chapters);
 
 		return lingText;
 	}
 
 	/**
-	 * Reads the books inside the specified text node. All books that get read
-	 * by this function also have the appropriate verses inside each book as
-	 * well.
+	 * Reads the chapters inside the specified text node. All chapters that get
+	 * read by this function also have the appropriate verses inside each
+	 * chapter as well.
 	 * 
 	 * @param textNode
 	 *            The node representing the top-level text element in a LA+
 	 *            manifest file
-	 * @return A list of books declared in the manifest file
+	 * @return A list of chapters declared in the manifest file
 	 */
-	private static List<Book> readBooks(Node textNode) {
-		NodeList bookNodes = textNode.getChildNodes();
-		List<Book> books = new ArrayList<Book>();
+	private static List<Chapter> readChapters(Node textNode) {
+		NodeList chapterNodes = textNode.getChildNodes();
+		List<Chapter> chapters = new ArrayList<Chapter>();
 
-		// For each book...
-		for (int i = 0; i < bookNodes.getLength(); i++) {
-			Node bookNode = bookNodes.item(i);
-			Book book;
+		// For each chapter...
+		for (int i = 0; i < chapterNodes.getLength(); i++) {
+			Node chapterNode = chapterNodes.item(i);
+			Chapter chapter;
 			List<VerseReference> verseRefs;
 			NamedNodeMap attrs;
 
@@ -88,40 +88,40 @@ public class ManifestReader {
 			 * Text nodes contain the stuff between XML tags. We're not putting
 			 * anything between XML tags, so we simply ignore these.
 			 */
-			if (bookNode.getNodeType() == Node.TEXT_NODE) {
+			if (chapterNode.getNodeType() == Node.TEXT_NODE) {
 				continue;
 			}
 
-			// Create the book and get its metadata
-			book = new Book();
-			attrs = bookNode.getAttributes();
-			book.setName(attrs.getNamedItem("name").getNodeValue());
-			book.setId(Integer
-					.parseInt(attrs.getNamedItem("id").getNodeValue()));
+			// Create the chapter and get its metadata
+			chapter = new Chapter();
+			attrs = chapterNode.getAttributes();
+			chapter.setName(attrs.getNamedItem("name").getNodeValue());
+			chapter.setId(Integer.parseInt(attrs.getNamedItem("id")
+					.getNodeValue()));
 
-			// Get the verses in this book
-			verseRefs = readVerses(bookNode);
-			book.setVerseReferences(verseRefs);
-			
+			// Get the verses in this chapter
+			verseRefs = readVerses(chapterNode);
+			chapter.setVerseReferences(verseRefs);
+
 			// and lastly, put it in the list
-			books.add(book);
+			chapters.add(chapter);
 		}
 
-		return books;
+		return chapters;
 	}
 
 	/**
 	 * Reads the verses inside the specified Node, and returns them in a nice
-	 * convenient List. This function assumes that bookNode really is a book
-	 * node.
+	 * convenient List. This function assumes that chapterNode really is a
+	 * chapter node.
 	 * 
-	 * @param bookNode
-	 *            The book node to read verses from
+	 * @param chapterNode
+	 *            The chapter node to read verses from
 	 * @return A list of verses inside the specified node
 	 */
-	private static List<VerseReference> readVerses(Node bookNode) {
+	private static List<VerseReference> readVerses(Node chapterNode) {
 		List<VerseReference> verseRefs = new ArrayList<>();
-		NodeList verseNodes = bookNode.getChildNodes();
+		NodeList verseNodes = chapterNode.getChildNodes();
 
 		for (int i = 0; i < verseNodes.getLength(); i++) {
 			Node verseNode = verseNodes.item(i);

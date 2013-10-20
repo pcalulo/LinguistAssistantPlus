@@ -73,7 +73,7 @@ public abstract class BaseMainWindow {
 	private JToolBar toolBar;
 	private JButton btnSelectVerse;
 	private Component horizontalGlue;
-	private JLabel lblBookTitle;
+	private JLabel selectedVerseLabel;
 	private JMenuItem mntmCloseText;
 
 	/**
@@ -216,8 +216,8 @@ public abstract class BaseMainWindow {
 		horizontalGlue = Box.createHorizontalGlue();
 		toolBar.add(horizontalGlue);
 		
-		lblBookTitle = new JLabel("Book/verse goes here");
-		toolBar.add(lblBookTitle);
+		selectedVerseLabel = new JLabel("Chapter/verse goes here");
+		toolBar.add(selectedVerseLabel);
 		
 		menuBar = new JMenuBar();
 		windowForm.setJMenuBar(menuBar);

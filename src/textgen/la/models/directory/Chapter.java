@@ -3,7 +3,7 @@ package textgen.la.models.directory;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Book {
+public class Chapter {
 	private String name;
 	private int id;
 	private List<VerseReference> verseRefs;
@@ -24,7 +24,7 @@ public class Book {
 		this.name = name;
 	}
 
-	public Book() {
+	public Chapter() {
 		verseRefs = new ArrayList<VerseReference>();
 	}
 
@@ -45,7 +45,7 @@ public class Book {
 	}
 	
 	public void printContents() {
-		System.out.println("Book: " + getName() + " | ID: " + getId());
+		System.out.println("Chapter: " + getName() + " | ID: " + getId());
 		System.out.println("Verse References: ");
 		
 		for (VerseReference verseRef : verseRefs) {

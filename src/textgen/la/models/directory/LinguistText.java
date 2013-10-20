@@ -4,7 +4,7 @@ import java.util.List;
 
 public class LinguistText {
 	private String name;
-	private List<Book> books;
+	private List<Chapter> chapters;
 
 	public String getName() {
 		return name;
@@ -14,27 +14,32 @@ public class LinguistText {
 		this.name = name;
 	}
 	
-	public void setBooks(List<Book> books) {
-		this.books = books;
+	public void setChapters(List<Chapter> chapters) {
+		this.chapters = chapters;
 	}
 	
-	public List<Book> getBooks() {
-		return books;
+	public List<Chapter> getChapters() {
+		return chapters;
 	}
 	
-	public void addBook(Book book) {
-		this.books.add(book);
+	public void addChapter(Chapter chapter) {
+		this.chapters.add(chapter);
 	}
 	
-	public void removeBook(Book book) {
-		this.books.remove(book);
+	public void removeChapter(Chapter chapter) {
+		this.chapters.remove(chapter);
 	}
 	
 	public void printContents() {
 		System.out.println("LinguistText: " + getName());
-		System.out.println("Books:");
-		for (Book book : books) {
-			book.printContents();
+		System.out.println("Chapters:");
+		for (Chapter chapter : chapters) {
+			chapter.printContents();
 		}
+	}
+	
+	@Override
+	public String toString() {
+		return getName();
 	}
 }
