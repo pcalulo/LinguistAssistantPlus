@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import java.util.logging.Logger;
 
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -16,6 +17,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 import textgen.la.models.Constituent;
 import textgen.la.models.Parser;
 import textgen.la.models.Sentence;
+import textgen.la.models.directory.ManifestFileFilter;
 
 /**
  * This class extends BaseMainWindow, and provides additional business logic
@@ -140,6 +142,10 @@ public class LAMainWindow extends BaseMainWindow {
 	@Override
 	protected void onOpenTextClick() {
 		logger.info("onOpenTextClick!");
+		
+		JFileChooser fileChooser = new JFileChooser();
+		fileChooser.setFileFilter(new ManifestFileFilter());
+		fileChooser.showOpenDialog(this.getWindowForm());
 	}
 
 	@Override

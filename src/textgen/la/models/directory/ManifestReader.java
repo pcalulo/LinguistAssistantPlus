@@ -25,6 +25,11 @@ import org.xml.sax.SAXException;
  * 
  */
 public class ManifestReader {
+	
+	/**
+	 * The file name that all manifest files *MUST* have.
+	 */
+	public static final String MANIFEST_FILE_NAME = "manifest.xml";
 
 	public static LinguistText read(File file) throws IOException {
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
