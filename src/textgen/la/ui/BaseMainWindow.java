@@ -219,10 +219,10 @@ public class BaseMainWindow {
 		mnFile = new JMenu("File");
 		menuBar.add(mnFile);
 		
-		mntmNew = new JMenuItem("New");
+		mntmNew = new JMenuItem("New Text");
 		mnFile.add(mntmNew);
 		
-		mntmOpen = new JMenuItem("Open");
+		mntmOpen = new JMenuItem("Open Text");
 		mnFile.add(mntmOpen);
 		
 		separator = new JSeparator();
