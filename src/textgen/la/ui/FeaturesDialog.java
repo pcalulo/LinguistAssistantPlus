@@ -26,6 +26,8 @@ import javax.swing.table.JTableHeader;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class FeaturesDialog extends JDialog {
 
@@ -69,6 +71,11 @@ public class FeaturesDialog extends JDialog {
 		buttonPanel.setLayout(gbl_buttonPanel);
 		
 		JButton btnAdd = new JButton("Add");
+		btnAdd.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				onAddButtonClick();
+			}
+		});
 		GridBagConstraints gbc_btnAdd = new GridBagConstraints();
 		gbc_btnAdd.insets = new Insets(0, 0, 5, 0);
 		gbc_btnAdd.fill = GridBagConstraints.HORIZONTAL;
@@ -78,6 +85,11 @@ public class FeaturesDialog extends JDialog {
 		buttonPanel.add(btnAdd, gbc_btnAdd);
 		
 		JButton btnRemove = new JButton("Remove");
+		btnRemove.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				onRemoveButtonClick();
+			}
+		});
 		GridBagConstraints gbc_btnRemove = new GridBagConstraints();
 		gbc_btnRemove.fill = GridBagConstraints.HORIZONTAL;
 		gbc_btnRemove.anchor = GridBagConstraints.WEST;
@@ -140,6 +152,7 @@ public class FeaturesDialog extends JDialog {
 		// Display the table's header
 		JTable table = getFeaturesTable();
 		JTableHeader header = table.getTableHeader();
+		header.setReorderingAllowed(false);
 		getFeaturesPanel().add(header, BorderLayout.NORTH);
 	}
 
@@ -160,5 +173,25 @@ public class FeaturesDialog extends JDialog {
 
 	public JPanel getFeaturesPanel() {
 		return panel;
+	}
+	
+	// == Event handlers! ==
+	
+	protected void onAddButtonClick() {
+		int selectedRowIndex = getFeaturesTable().getSelectedRow();
+		FeatureTableModel ftm = (FeatureTableModel) getFeaturesTable().getModel();
+		
+		System.out.println(selectedRowIndex);
+		
+		ftm.insertEmptyRow(selectedRowIndex);
+	}
+	
+	protected void onRemoveButtonClick() {
+		int selectedRowIndex = getFeaturesTable().getSelectedRow();
+		FeatureTableModel ftm = (FeatureTableModel) getFeaturesTable().getModel();
+		
+		if (selectedRowIndex >= 0) {
+			ftm.removeRowAt(selectedRowIndex);
+		}
 	}
 }

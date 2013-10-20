@@ -4,7 +4,7 @@ import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-public class Feature implements Comparable <Feature> {
+public class Feature implements Comparable<Feature> {
 	private String name, value;
 	private int depthLevel;
 
@@ -12,7 +12,7 @@ public class Feature implements Comparable <Feature> {
 		name = n;
 		value = val;
 	}
-	
+
 	public Feature(Node a, int parentDepth) {
 		NamedNodeMap attr = a.getAttributes();
 		NodeList m = a.getChildNodes();
@@ -42,13 +42,13 @@ public class Feature implements Comparable <Feature> {
 	public String getValue() {
 		return value;
 	}
-	
+
 	public void setName(String newName) {
 		name = newName;
 	}
 
 	public void setValue(String newValue) {
-		value= newValue;
+		value = newValue;
 	}
 
 	public String toXMLString() {
