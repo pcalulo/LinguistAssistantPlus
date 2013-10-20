@@ -5,8 +5,10 @@ import java.awt.FlowLayout;
 import java.awt.Frame;
 
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
+import javax.swing.KeyStroke;
 import javax.swing.border.EmptyBorder;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
@@ -17,6 +19,9 @@ import textgen.la.ui.displaymodels.LinguistTextTreeModel;
 
 import java.awt.Dialog.ModalityType;
 import java.awt.Dialog.ModalExclusionType;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
 
 public class LinguistTextNavigatorDialog extends JDialog {
 
@@ -71,10 +76,38 @@ public class LinguistTextNavigatorDialog extends JDialog {
 			}
 			{
 				JButton cancelButton = new JButton("Cancel");
+				cancelButton.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						onCancel();
+					}
+				});
 				cancelButton.setActionCommand("Cancel");
 				buttonPane.add(cancelButton);
 			}
 		}
+
+		customInitialize();
+	}
+
+	/**
+	 * Performs additional initialization that cannot be specified through the
+	 * WindowBuilder UI
+	 */
+	protected void customInitialize() {
+		// Close when Escape is pressed
+		KeyStroke escapeKeystroke = KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE,
+				0);
+		this.getRootPane().registerKeyboardAction(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				onCancel();
+			}
+		}, escapeKeystroke, JComponent.WHEN_IN_FOCUSED_WINDOW);
+	}
+
+	protected void onCancel() {
+		setVisible(false);
 	}
 
 	public JTree getTree() {
