@@ -27,9 +27,6 @@ import javax.swing.table.JTableHeader;
 import textgen.la.models.Constituent;
 import textgen.la.ui.displaymodels.FeatureTableModel;
 
-import java.awt.Dialog.ModalityType;
-import java.awt.Dialog.ModalExclusionType;
-
 public class FeaturesDialog extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();

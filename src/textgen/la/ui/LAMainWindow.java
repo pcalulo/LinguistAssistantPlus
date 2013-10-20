@@ -23,6 +23,8 @@ import textgen.la.models.Sentence;
 import textgen.la.models.directory.LinguistText;
 import textgen.la.models.directory.ManifestFileFilter;
 import textgen.la.models.directory.ManifestReader;
+import textgen.la.models.directory.VerseReference;
+import textgen.la.ui.LinguistTextNavigatorDialog.VerseSelectionListener;
 import textgen.la.ui.displaymodels.LinguistTextTreeModel;
 
 /**
@@ -32,12 +34,14 @@ import textgen.la.ui.displaymodels.LinguistTextTreeModel;
  * @author Lawrence Patrick Calulo
  * 
  */
-public class LAMainWindow extends BaseMainWindow {
+public class LAMainWindow extends BaseMainWindow implements VerseSelectionListener {
 
 	public static LAMainWindow instance;
 
 	private Sentence sentence;
 	private Constituent selectedConstituent;
+
+	private LinguistText linguistText;
 
 	private Logger logger = Logger.getLogger(this.getClass().getSimpleName());
 
@@ -135,6 +139,14 @@ public class LAMainWindow extends BaseMainWindow {
 		// getScrollPane().setViewportView(boxes);
 	}
 
+	public LinguistText getLinguistText() {
+		return linguistText;
+	}
+
+	public void setLinguistText(LinguistText linguistText) {
+		this.linguistText = linguistText;
+	}
+
 	public void setActiveConstituent(Constituent constituent) {
 		getLabelField().setText(constituent.getLabel());
 		getConceptField().setText(constituent.getConcept());
@@ -163,10 +175,9 @@ public class LAMainWindow extends BaseMainWindow {
 			try {
 				text = ManifestReader.read(selectedFile);
 				text.printContents();
-				
-				LinguistTextNavigatorDialog dialog = new LinguistTextNavigatorDialog(this.getWindowForm());
-				dialog.setLinguistText(text);
-				dialog.setVisible(true);
+				setLinguistText(text);
+
+				onSelectVerseClick();
 			} catch (IOException ex) {
 				ex.printStackTrace();
 			}
@@ -176,5 +187,18 @@ public class LAMainWindow extends BaseMainWindow {
 	@Override
 	protected void onAboutClick() {
 		logger.info("onAboutClick!");
+	}
+
+	@Override
+	protected void onSelectVerseClick() {
+		LinguistTextNavigatorDialog dialog = new LinguistTextNavigatorDialog(this.getWindowForm(), this);
+		dialog.setLinguistText(getLinguistText());
+		dialog.setVisible(true);
+	}
+
+	@Override
+	public void onVerseSelected(LinguistText linguistText,
+			VerseReference verseRef) {
+		verseRef.getVerse();
 	}
 }

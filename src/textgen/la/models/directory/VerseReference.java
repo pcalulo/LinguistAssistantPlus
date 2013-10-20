@@ -4,6 +4,8 @@ import java.util.Enumeration;
 
 import javax.swing.tree.TreeNode;
 
+import textgen.la.models.Sentence;
+
 public class VerseReference implements TreeNode {
 	private String fileName;
 	private int id;
@@ -42,6 +44,10 @@ public class VerseReference implements TreeNode {
 	@Override
 	public String toString() {
 		return "Verse " + getId();
+	}
+	
+	public Sentence getVerse() {
+		return null;
 	}
 
 	// TreeNode interface methods

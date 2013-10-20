@@ -211,6 +211,11 @@ public abstract class BaseMainWindow {
 		windowForm.getContentPane().add(toolBar, BorderLayout.NORTH);
 		
 		btnSelectVerse = new JButton("Select Verse");
+		btnSelectVerse.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				onSelectVerseClick();
+			}
+		});
 		toolBar.add(btnSelectVerse);
 		
 		horizontalGlue = Box.createHorizontalGlue();
@@ -299,4 +304,6 @@ public abstract class BaseMainWindow {
 	protected abstract void onOpenTextClick();
 	
 	protected abstract void onAboutClick();
+	
+	protected abstract void onSelectVerseClick();
 }
