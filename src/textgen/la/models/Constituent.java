@@ -56,7 +56,7 @@ public class Constituent {
 	}
 	
 	// XML STUFF
-	public Constituent(Element a, int parentDepth) {
+	public Constituent(Element element, int parentDepth) {
 		//NamedNodeMap attr = a.getAttributes();
 		//NodeList children = a.getChildNodes();
 
@@ -64,6 +64,8 @@ public class Constituent {
 		depthLevel = parentDepth+1;
 		constList = new ConstitList();
 		Attr attr;
+		NamedNodeMap attributes;
+		
 		/*
 		 * if (attr.getNamedItem("label").getNodeValue() != null) label =
 		 * attr.getNamedItem("label").getNodeValue(); if
@@ -72,16 +74,26 @@ public class Constituent {
 		 * (attr.getNamedItem("translation").getNodeValue() != null) translation
 		 * = attr.getNamedItem("translation").getNodeValue();
 		 */
-		if(a.hasAttributes())
+		if(element.hasAttributes())
 		{
-			attr = (Attr) a.getAttributes().getNamedItem("label");
-			if(attr != null)
-			{
+			attributes = element.getAttributes();
+			attr = (Attr) attributes.getNamedItem("label");
+			if(attr != null) {
 				label = attr.getValue();
+			}
+			
+			attr = (Attr) attributes.getNamedItem("concept");
+			if (attr != null) {
+				setConcept(attr.getValue());
+				
+				attr = (Attr) attributes.getNamedItem("sense");
+				if (attr != null) {
+					setConcept(getConcept() + "-" +  attr.getValue());
+				}
 			}
 		}
 		
-		NodeList children= a.getChildNodes();
+		NodeList children= element.getChildNodes();
 		for (int i = 0; i < children.getLength(); i++) {
 			Node node = children.item(i);
 

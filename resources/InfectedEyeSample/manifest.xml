@@ -2,5 +2,6 @@
 <text name="Infected Eye Built-In Sample">
 	<chapter name="Example Chapter" id="1">
 		<verse id="1" filename="InfectedEye1_1.xml"></verse>
+		<verse id="2" filename="InfectedEye1_2.xml"></verse>
 	</chapter>
 </text>

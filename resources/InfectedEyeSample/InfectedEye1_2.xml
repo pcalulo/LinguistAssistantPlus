@@ -1,0 +1,584 @@
+<sentence>
+	<const label="CL">
+		<features>
+			<feature name="Salience Band">Background Actions</feature>
+			<feature name="Sequence">Not in a Sequence</feature>
+		</features>
+		<subconst>
+			<const label="Adp" concept="" sense="A"></const>
+			<const label="Adp" concept="one day" sense="A"></const>
+			<const label="NP">
+				<features>
+					<feature name="Sequence"> Not in a Sequence</feature>
+					<feature name="Semantic Role">Most Agent-like</feature>
+					<feature name="Grammatical Relation">Subject</feature>
+				</features>
+				<subconst>
+					<const label="N" concept="girl" sense="A">
+						<features>
+							<feature name="Participant Tracking">First Mention</feature>
+							<feature name="Person">Third</feature>
+							<feature name="Noun List Index">1</feature>
+						</features>
+					</const>
+				</subconst>
+			</const>
+			<const label="NP">
+				<features>
+					<feature name="Sequence">Not in a Sequence</feature>
+					<feature name="Semantic Role">Not Applicable</feature>
+					<feature name="Grammatical Relation">No Grammatical Relation</feature>
+				</features>
+			</const>
+			<const label="Adp" concept="named" sense="A"></const>
+			<const label="N" concept="Melissa" sense="A">
+				<features>
+					<feature name="Participant Tracking">First Mention</feature>
+					<feature name="Person">Third</feature>
+					<feature name="Noun List Index">1</feature>
+				</features>
+			</const>
+			<const label="VP">
+				<features>
+					<feature name="Sequence">Not in a Sequence</feature>
+				</features>
+				<subconst>
+					<const label="V" concept="sit" sense="A">
+						<features>
+							<feature name="Time">Past</feature>
+							<feature name="Mood">Indicative</feature>
+						</features>
+					</const>
+				</subconst>
+			</const>
+			<const label="NP">
+				<features>
+					<feature name="Sequence">Not in a Sequence</feature>
+					<feature name="Semantic Role">Not Applicable</feature>
+					<feature name="Grammatical Relation">Oblique</feature>
+				</features>
+			</const>
+			<const label="Adp" concept="outside" sense="A"></const>
+			<const label="N" concept="house" sense="A">
+				<features>
+					<feature name="Participant Tracking">Routine</feature>
+					<feature name="Person">Third</feature>
+					<feature name="Noun List Index">3</feature>
+				</features>
+			</const>
+			<const label="NP">
+				<features>
+					<feature name="Sequence">Not in a Sequence</feature>
+					<feature name="Semantic Role">Not Applicable</feature>
+					<feature name="Grammatical Relation">No Grammatical Relation</feature>
+				</features>
+			</const>
+			<const label="Adp" concept="" sense="A"></const>
+			<const label="N" concept="Melissa" sense="A">
+				<features>
+					<feature name="Participant Tracking">Routine</feature>
+					<feature name="Person">Third</feature>
+					<feature name="Noun List Index">1</feature>
+				</features>
+			</const>
+		</subconst>
+	</const>
+	<const label="CL">
+		<features>
+			<feature name="Salience Band">Setting</feature>
+			<feature name="Sequence">Not in a Sequence</feature>
+		</features>
+		<subconst>
+			<const label="Conj" concept="but" sense="A"></const>
+			<const label="NP">
+				<features>
+					<feature name="Sequence">Not in a Sequence</feature>
+					<feature name="Semantic Role">Most Agent-like</feature>
+					<feature name="Grammatical Relation">Subject</feature>
+				</features>
+				<subconst>
+					<const label="N" concept="Melissa" sense="A">
+						<features>
+							<feature name="Participant Tracking">Routine</feature>
+							<feature name="Person">Third</feature>
+							<feature name="Noun List Index">1</feature>
+						</features>
+					</const>
+				</subconst>
+			</const>
+			<const label="VP">
+				<features>
+					<feature name="Sequence">Not in a Sequence</feature>
+				</features>
+				<subconst>
+					<const label="V" concept="be" sense="D">
+						<features>
+							<feature name="Time">Past</feature>
+							<feature name="Mood">Indicative</feature>
+						</features>
+					</const>
+				</subconst>
+			</const>
+			<const label="AdjP">
+				<features>
+					<feature name="Sequence">Not in a Sequence</feature>
+					<feature name="Usage">Predicative</feature>
+				</features>
+				<subconst>
+					<const label="Adj" concept="happy" sense="A">
+						<features>
+							<feature name="Type">Descriptive</feature>
+						</features>
+					</const>
+				</subconst>
+			</const>
+			<const label="CL">
+				<features>
+					<feature name="Salience Band">Setting</feature>
+					<feature name="Sequence">Not in a Sequence</feature>
+				</features>
+				<subconst>
+					<const label="Adp" concept="because" sense="A"></const>
+					<const label="NP">
+						<features>
+							<feature name="Sequence">Not in a Sequence</feature>
+							<feature name="Semantic Role">Most Agent-like</feature>
+							<feature name="Grammatical Relation">Subject</feature>
+						</features>
+						<subconst>
+							<const label="N" concept="eye" sense="A">
+								<features>
+									<feature name="Participant Tracking">Routine</feature>
+									<feature name="Person">Third</feature>
+									<feature name="Noun List Index">4</feature>
+								</features>
+							</const>
+						</subconst>
+					</const>
+					<const label="NP">
+						<features>
+							<feature name="Sequence">Not in a Sequence</feature>
+							<feature name="Semantic Role">Not Applicable</feature>
+							<feature name="Grammatical Relation">No Grammatical Relation</feature>
+						</features>
+					</const>
+					<const label="Adp" concept="" sense="A"></const>
+					<const label="N" concept="Melissa" sense="A">
+						<features>
+							<feature name="Participant Tracking">Routine</feature>
+							<feature name="Person">Third</feature>
+							<feature name="Noun List Index">1</feature>
+						</features>
+					</const>
+					<const label="VP">
+						<features>
+							<feature name="Sequence">Not in a Sequence</feature>
+						</features>
+						<subconst>
+							<const label="V" concept="be" sense="D">
+								<features>
+									<feature name="Time">Past</feature>
+									<feature name="Mood">Indicative</feature>
+								</features>
+							</const>
+						</subconst>
+					</const>
+					<const label="AdjP">
+						<features>
+							<feature name="Sequence">Not in a Sequence</feature>
+							<feature name="Usage">Predicative</feature>
+						</features>
+						<subconst>
+							<const label="Adj" concept="sore" sense="A">
+								<features>
+									<feature name="Type">Descriptive</feature>
+								</features>
+							</const>
+						</subconst>
+					</const>
+				</subconst>
+			</const>
+		</subconst>
+	</const>
+	<const label="CL">
+		<features>
+			<feature name="Salience Band">Primary Storyline</feature>
+			<feature name="Sequence">Not in a Sequence</feature>
+		</features>
+		<subconst>
+			<const label="NP">
+				<features>
+					<feature name="Sequence">Not in a Sequence</feature>
+					<feature name="Semantic Role">Most Agent-like</feature>
+					<feature name="Grammatical Relation">Subject</feature>
+				</features>
+				<subconst>
+					<const label="N" concept="Melissa" sense="A">
+						<features>
+							<feature name="Participant Tracking">Routine</feature>
+							<feature name="Person">Third</feature>
+							<feature name="Noun List Index">1</feature>
+						</features>
+					</const>
+				</subconst>
+			</const>
+			<const label="VP">
+				<features>
+					<feature name="Sequence">Not in a Sequence</feature>
+				</features>
+				<subconst>
+					<const label="V" concept="think" sense="C">
+						<feature name="Time"> Past</feature>
+						<feature name="Mood"> Indicative</feature>
+					</const>
+				</subconst>
+			</const>
+			<const label="CL">
+				<features>
+					<feature name="Salience Band">Primary Storyline</feature>
+					<feature name="Sequence">Not in a Sequence</feature>
+				</features>
+				<subconst>
+					<const label="NP">
+						<features>
+							<feature name="Sequence">Not in a Sequence</feature>
+							<feature name="Semantic Role">Most Agent-like</feature>
+							<feature name="Grammatical Relation">Subject</feature>
+						</features>
+					</const>
+					<const label="AdjP">
+						<features>
+							<feature name="Sequence">Not in a Sequence</feature>
+							<feature name="Usage">Attribute</feature>
+						</features>
+						<subconst>
+							<const label="Adj" concept="some" sense="A">
+								<features>
+									<feature name="Type">Quantity</feature>
+								</features>
+							</const>
+						</subconst>
+					</const>
+					<const label="N" concept="sand" sense="A">
+						<features>
+							<feature name="Participant Tracking">Generic</feature>
+							<feature name="Person">Third</feature>
+							<feature name="Noun List Index">5</feature>
+						</features>
+					</const>
+					<const label="VP">
+						<features>
+							<feature name="Sequence">Not in a Sequence</feature>
+						</features>
+						<subconst>
+							<const label="V" concept="be" sense="F">
+								<feature name="Time"> Past</feature>
+								<feature name="Mood"> Indicative</feature>
+							</const>
+						</subconst>
+					</const>
+					<const label="NP">
+						<features>
+							<feature name="Sequence">Not in a Sequence</feature>
+							<feature name="Semantic Role">State</feature>
+							<feature name="Grammatical Relation">Oblique</feature>
+						</features>
+					</const>
+					<const label="Adp" concept="in" sense="B"></const>
+					<const label="N" concept="eye" sense="A">
+						<features>
+							<feature name="Participant Tracking">Routine</feature>
+							<feature name="Person">Third</feature>
+							<feature name="Noun List Index">4</feature>
+						</features>
+					</const>
+					<const label="NP">
+						<features>
+							<feature name="Sequence">Not in a Sequence</feature>
+							<feature name="Semantic Role">Not Applicable</feature>
+							<feature name="Grammatical Relation">No Grammatical Relation</feature>
+						</features>
+					</const>
+					<const label="Adp" concept="" sense="A"></const>
+					<const label="N" concept="Melissa" sense="A">
+						<features>
+							<feature name="Participant Tracking">Routine</feature>
+							<feature name="Person">Third</feature>
+							<feature name="Noun List Index">1</feature>
+						</features>
+					</const>
+				</subconst>
+			</const>
+		</subconst>
+	</const>
+	<const label="CL">
+		<features>
+			<feature name="Salience Band">Primary Storyline</feature>
+			<feature name="Sequence">Not in a Sequence</feature>
+		</features>
+		<subconst>
+			<const label="Conj" concept="so" sense="A"></const>
+			<const label="NP">
+				<features>
+					<feature name="Sequence">Not in a Sequence</feature>
+					<feature name="Semantic Role">Most Agent-like</feature>
+					<feature name="Grammatical Relation">Subject</feature>
+				</features>
+				<subconst>
+					<const label="N" concept="Melissa" sense="A">
+						<features>
+							<feature name="Participant Tracking">Routine</feature>
+							<feature name="Person">Third</feature>
+							<feature name="Noun List Index">1</feature>
+						</features>
+					</const>
+				</subconst>
+			</const>
+			<const label="VP">
+				<features>
+					<feature name="Sequence">Not in a Sequence</feature>
+				</features>
+				<subconst>
+					<const label="V" concept="call" sense="A">
+						<features>
+							<feature name="Time">Past</feature>
+							<feature name="Mood">Indicative</feature>
+						</features>
+					</const>
+				</subconst>
+			</const>
+			<const label="NP">
+				<features>
+					<feature name="Sequence">Not in a Sequence</feature>
+					<feature name="Semantic Role">Most Patient-like</feature>
+					<feature name="Grammatical Relation">Object</feature>
+				</features>
+				<subconst>
+					<const label="N" concept="friend" sense="A">
+						<features>
+							<feature name="Participant Tracking">First Mention</feature>
+							<feature name="Person">Third</feature>
+							<feature name="Noun List Index">6</feature>
+						</features>
+					</const>
+				</subconst>
+			</const>
+			<const label="NP">
+				<features>
+					<feature name="Sequence">Not in a Sequence</feature>
+					<feature name="Semantic Role">Not Applicable</feature>
+					<feature name="Grammatical Relation">No Grammatical Relation</feature>
+				</features>
+			</const>
+			<const label="Adp" concept="named" sense="A"></const>
+			<const label="N" concept="Janet" sense="A">
+				<features>
+					<feature name="Participant Tracking">Routine</feature>
+					<feature name="Person">Third</feature>
+					<feature name="Noun List Index">7</feature>
+				</features>
+			</const>
+		</subconst>
+	</const>
+	<const label="CL">
+		<features>
+			<feature name="Salience Band">Primary Storyline</feature>
+			<feature name="Sequence">Not in a Sequence</feature>
+		</features>
+		<subconst>
+			<const label="Conj" concept="then" sense="C"></const>
+			<const label="NP">
+				<features>
+					<feature name="Sequence">Not in a Sequence</feature>
+					<feature name="Semantic Role">Most Agent-like</feature>
+					<feature name="Grammatical Relation">Subject</feature>
+				</features>
+				<subconst>
+					<const label="N" concept="Melissa" sense="A">
+						<features>
+							<feature name="Participant Tracking">Routine</feature>
+							<feature name="Person">Third</feature>
+							<feature name="Noun List Index">1</feature>
+						</features>
+					</const>
+				</subconst>
+			</const>
+			<const label="VP">
+				<features>
+					<feature name="Sequence">Not in a Sequence</feature>
+				</features>
+				<subconst>
+					<const label="V" concept="say" sense="A">
+						<features>
+							<feature name="Time">Past</feature>
+							<feature name="Mood">Indicative</feature>
+						</features>
+					</const>
+				</subconst>
+			</const>
+			<const label="NP">
+				<features>
+					<feature name="Sequence">Not in a Sequence</feature>
+					<feature name="Semantic Role">Destination</feature>
+					<feature name="Grammatical Relation">Oblique</feature>
+				</features>
+				<subconst>
+					<const label="N" concept="Janet" sense="A">
+						<features>
+							<feature name="Participant Tracking">Routine</feature>
+							<feature name="Person">Third</feature>
+							<feature name="Noun List Index">7</feature>
+						</features>
+					</const>
+				</subconst>
+			</const>
+			<const label="CL">
+				<features>
+					<feature name="Salience Band">Primary Storyline</feature>
+					<feature name="Sequence">Not in a Sequence</feature>
+				</features>
+				<subconst>
+					<const label="Par" concept=" '' " sense="A"></const>
+					<const label="NP">
+						<features>
+							<feature name="Sequence">Not in a Sequence</feature>
+							<feature name="Semantic Role">Most Agent-like</feature>
+							<feature name="Grammatical Relation">Subject</feature>
+						</features>
+						<subconst>
+							<const label="N" concept="Janet" sense="A">
+								<features>
+									<feature name="Participant Tracking">Routine</feature>
+									<feature name="Person">Third</feature>
+									<feature name="Noun List Index">7</feature>
+								</features>
+							</const>
+						</subconst>
+					</const>
+					<const label="VP">
+						<features>
+							<feature name="Sequence">Not in a Sequence</feature>
+						</features>
+						<subconst>
+							<const label="V" concept="look" sense="A">
+								<features>
+									<feature name="Time">Future</feature>
+									<feature name="Mood">Indicative</feature>
+								</features>
+							</const>
+						</subconst>
+					</const>
+					<const label="NP">
+						<features>
+							<feature name="Sequence">Not in a Sequence</feature>
+							<feature name="Semantic Role">Most Patient-like</feature>
+							<feature name="Grammatical Relation">Object</feature>
+						</features>
+						<subconst>
+							<const label="N" concept="eye" sense="A">
+								<features>
+									<feature name="Participant Tracking">Routine</feature>
+									<feature name="Person">Third</feature>
+									<feature name="Noun List Index">4</feature>
+								</features>
+							</const>
+						</subconst>
+					</const>
+					<const label="NP">
+						<features>
+							<feature name="Sequence">Not in a Sequence</feature>
+							<feature name="Semantic Role">Not Applicable</feature>
+							<feature name="Grammatical Relation">No Grammatical Relation</feature>
+						</features>
+					</const>
+					<const label="Adp" concept="" sense="A"></const>
+					<const label="N" concept="Melissa" sense="A">
+						<features>
+							<feature name="Participant Tracking">Routine</feature>
+							<feature name="Person">Third</feature>
+							<feature name="Noun List Index">1</feature>
+						</features>
+					</const>
+					<const label="Par" concept=" please " sense="A"></const>
+				</subconst>
+			</const>
+		</subconst>
+	</const>
+	<const label="CL">
+		<features>
+			<feature name="Salience Band">Primary Storyline</feature>
+			<feature name="Sequence">Not in a Sequence</feature>
+		</features>
+		<subconst>
+			<const label="NP">
+				<features>
+					<feature name="Sequence">Not in a Sequence</feature>
+					<feature name="Semantic Role">Most Agent-like</feature>
+					<feature name="Grammatical Relation">Subject</feature>
+				</features>
+			</const>
+			<const label="AdjP">
+				<features>
+					<feature name="Sequence">Not in a Sequence</feature>
+					<feature name="Usage">Attribute</feature>
+				</features>
+				<subconst>
+					<const label="Adj" concept="some" sense="A">
+						<features>
+							<feature name="Type">Quantity</feature>
+						</features>
+					</const>
+				</subconst>
+			</const>
+			<const label="N" concept="sand" sense="A">
+				<features>
+					<feature name="Participant Tracking">Generic</feature>
+					<feature name="Person">Third</feature>
+					<feature name="Noun List Index">5</feature>
+				</features>
+			</const>
+			<const label="VP">
+				<features>
+					<feature name="Sequence">Not in a Sequence</feature>
+				</features>
+				<subconst>
+					<const label="V" concept="be" sense="F">
+						<feature name="Time"> Present</feature>
+						<feature name="Mood"> Indicative</feature>
+					</const>
+				</subconst>
+			</const>
+			<const label="NP">
+				<features>
+					<feature name="Sequence">Not in a Sequence</feature>
+					<feature name="Semantic Role">State</feature>
+					<feature name="Grammatical Relation">Oblique</feature>
+				</features>
+			</const>
+			<const label="Adp" concept="in" sense="B"></const>
+			<const label="N" concept="eye" sense="A">
+				<features>
+					<feature name="Participant Tracking">Routine</feature>
+					<feature name="Person">Third</feature>
+					<feature name="Noun List Index">4</feature>
+				</features>
+			</const>
+			<const label="NP">
+				<features>
+					<feature name="Sequence">Not in a Sequence</feature>
+					<feature name="Semantic Role">Not Applicable</feature>
+					<feature name="Grammatical Relation">No Grammatical Relation</feature>
+				</features>
+			</const>
+			<const label="Adp" concept="" sense="A"></const>
+			<const label="N" concept="Melissa" sense="A">
+				<features>
+					<feature name="Participant Tracking">Routine</feature>
+					<feature name="Person">Third</feature>
+					<feature name="Noun List Index">1</feature>
+				</features>
+			</const>
+			<const label="Par" concept=" ~ " sense="A"></const>
+		</subconst>
+	</const>
+</sentence>
